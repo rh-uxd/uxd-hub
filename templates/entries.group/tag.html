@@ -1,0 +1,58 @@
+{layout='layouts/_new-html-wrapper'}
+        <section class="pf-c-page__main-section pf-m-limit-width pf-m-light">
+	        <div class="pf-c-page__main-body">
+	            <!-- PAGE TITLE -->
+	            <div class="pf-l-split">
+		            <div class="pf-l-split__item pf-m-fill">
+		                <div class="pf-c-content">
+		                  	<h1>Entries using {last_segment} tag
+			                </h1>
+		                </div><!--content-->
+		            </div><!--split item-->	                
+	            </div><!--split-->
+	        </div><!--pf-c-page__main-body-->
+        </section><!--pf-c-page__main-section-->
+        <section class="pf-c-page__main-section pf-m-light">
+          <div class="pf-c-page__main-body">
+            <div class="pf-l-gallery pf-m-gutter">               
+               {exp:tag:entries
+					tag="{last_segment}"
+					orderby="title" sort="asc"
+					paginate="bottom"
+					limit="10"
+				}
+					<div class="pf-c-card ux-c-card">
+					  <div class="pf-c-card__header">
+						  <h4 class="pf-u-font-size-sm">
+						  {categories show_group="1" style="linear" backspace="2"}<a href="{path='entries'} ">{category_name}, {/categories}</a>
+						  </h4>
+					  </div>
+					  <div class="pf-c-card__body pf-c-content">
+						<h3>{title}</h3>
+					  </div>
+					  <div class="pf-c-card__footer">
+						<div class="pf-l-level">
+						  <div class="pf-l-level__item">
+							<span class="pf-c-label pf-m-compact">
+							  {categories show_group="2" style="linear" backspace="2"}<a class="pf-c-label__content" href="{path='entries'} ">{category_name}, {/categories}</a>
+							</span>
+						  </div>
+						  <div class="pf-l-level__item">
+							<a class="pf-c-button pf-m-link pf-m-inline pf-m-display-lg" href="{title_permalink='entries/entry'}" role="link">
+							  <span class="pf-c-button__icon pf-m-end"> 
+								<i class="fas fa-arrow-right" aria-hidden="true"></i>
+							  </span>
+							</a>
+						  </div>
+						</div>
+					  </div>
+			  </div>
+					{if tag_no_results}
+						<div class="alert alert-warning" role="alert">
+							<p><strong>Sorry, no entries are assigned to this tag.</strong></p>
+						</div>
+					{/if}
+				{/exp:tag:entries}
+			</div><!--pf-l-gallery-->
+		  </div><!--pf-c-page__main-body-->
+</section><!--pf-c-page__main-section-->

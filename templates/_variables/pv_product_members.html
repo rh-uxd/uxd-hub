@@ -1,0 +1,11 @@
+{exp:query sql="SELECT member_id, avatar_filename as avatar_img FROM exp_members WHERE role_id ='{segment_2}'"}
+{exp:member:custom_profile_data member_id="{member_id}"}
+{if avatar_img !=""}
+<img class="pf-c-avatar" src="/images/avatars/{avatar_img}" alt="{author} avatar"/>
+{if:else}
+                      	<img class="pf-c-avatar pf-m-dark ux-c-login__avatar" alt="Avatar image dark" src="{theme_user_folder_url}site/default/asset/img/common/avatar.png"/>{/if}
+{/if}
+<h4>{screen_name}</h4>
+{role}
+{/exp:member:custom_profile_data}
+{/exp:query}

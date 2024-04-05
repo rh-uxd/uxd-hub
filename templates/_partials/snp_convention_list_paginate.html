@@ -1,0 +1,16 @@
+{!-- pagination --}
+{paginate}
+		{pagination_links page_padding='1'}
+			<ul class="ux-c-paginate">
+				{previous_page}
+					<li><a class="pf-c-button pf-m-secondary" href="{pagination_url}">Previous Page</a></li>
+				{/previous_page}
+{!-- 				{page}
+					<li><a class="pf-c-button pf-m-secondary" href="{pagination_url}"{if current_page} class="act"{/if}>{pagination_page_number}</a></li>
+				{/page} --}
+				{next_page}
+					<li><a class="pf-c-button pf-m-secondary" href="{pagination_url}">Next Page</a></li>
+				{/next_page}
+			</ul>
+		{/pagination_links}
+{/paginate}

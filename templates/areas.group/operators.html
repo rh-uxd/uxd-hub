@@ -1,0 +1,230 @@
+{layout='layouts/_new-html-wrapper'}
+{!-- {snp_area_nav} --}
+{layout:set name='title' value='OpenShift Operators'}
+<div class="ux-l-page-wrapper" id="page-content">
+            <button class="pf-c-button pf-m-plain drawer-toggle-button toggle-btn" id="toggle">
+                <svg width="20px" xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 49.9 36.49"><defs><style>.cls-1001{fill:none;stroke:#4f575e;stroke-linecap:round;stroke-miterlimit:10;stroke-width:5px}</style></defs><path d="M2.5 17.31 32.88 17.31M18.98 3.33 32.78 17.13M18.98 31.13 32.78 17.33M47.4 33.99 47.4 2.5" class="cls-1001"></path></svg>
+              </button>
+            <div class="ux-c-entry__toc">
+                <a class="pf-c-button pf-m-link" href="{path="areas/category/openshift"}">Back to OpenShift</a>
+                <div class="ux-c-toc pf-u-mb-0" id="toc">
+                <header class="ux-c-toc__header">
+                    <h2 class="pf-c-title pf-m-xl">Table of Contents</h2>
+                    <button class="pf-c-button pf-m-plain toc-toggle" id="TocToggle">
+                		 <svg width="20px" xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 49.9 36.49"><defs><style>.cls-1001{fill:none;stroke:#4f575e;stroke-linecap:round;stroke-miterlimit:10;stroke-width:5px}</style></defs><path d="M2.5 17.31 32.88 17.31M18.98 3.33 32.78 17.13M18.98 31.13 32.78 17.33M47.4 33.99 47.4 2.5" class="cls-1001"></path></svg>
+              		</button>
+              </header>
+                    <nav class="pf-m-vertical">
+                    	<ul class="ux-c-toc__list" id="toc-list">
+                          <li class="ux-c-toc__listItem"><a class="ux-c-toc__link" href="#what">What is an operator?</a></li>
+                          <li class="ux-c-toc__listItem"><a class="ux-c-toc__link" href="#why">Why use Red Hat OpenShift Operators?</a></li>
+                          <li class="ux-c-toc__listItem"><a class="ux-c-toc__link" href="#how">How do Red Hat OpenShift Operators work?</a></li>
+                          <li class="ux-c-toc__listItem"><a class="ux-c-toc__link" href="#tips">
+      Tips for designing Red Hat OpenShift Operators</a></li>
+                          <li class="ux-c-toc__listItem"><a class="ux-c-toc__link" href="#resources">
+      Resources</a></li>
+                          <li class="ux-c-toc__listItem"><a class="ux-c-toc__link" href="#conclusion">
+      Conclusion</a></li>
+						</ul>
+              		</nav>
+                </div>
+            </div>
+            <div class="ux-c-entry__content pf-m-light pf-m-fill pf-c-content pf-u-pt-0">
+              	<article>
+                    <div class="ux-c-banner-img">
+			  <img src="https://matthewcarleton.github.io/uxdhub/assets/images/hero--openshift--conventions.png" role="img" alt="Hero image for OpenShift"/>
+		    </div>
+			<div class="ux-c-center-titles">
+				<h1>
+				  Designing for OpenShift Operators<br>
+				  <small>Automate the creation, configuration, and management of instances of Kubernetes-native applications</small>
+				</h1>
+
+			</div>
+			
+			<div class="ux-c-TLDR-content">
+				<h2>TL;DR</h2>
+				<p>Red Hat OpenShift Operators are a way to automate the management of applications on OpenShift. Operators use custom resources to define and manage the application lifecycle. Operators can be used to manage anything from databases to applications.</p>
+				<p>Red Hat OpenShift Operators use custom resources to define and manage the application lifecycle. Custom resources are used to define the application's properties and the desired state.</p>
+				
+				<h3>Helpful links</h3>
+				
+				<div class="pf-l-split pf-m-gutter ux-c-split--spacer">
+              <div class="pf-l-split__item">
+                <div class="ux-c-source--item ux-c-source--item__Youtube"></div>
+			  </div><!--pf-l-split__item-->
+              <div class="pf-l-split__item"> 
+                <p><a href="https://www.youtube.com/watch?v=LymzLHRbQdk&t=11s" role="link" target="_blank">Red Hat OpenShift: Operators Framework</a><br> 
+                  <small>Youtube video</small></p>
+              </div><!--pf-l-split__item-->
+			</div>
+			
+				<div class="pf-l-split pf-m-gutter ux-c-split--spacer">
+              <div class="pf-l-split__item">
+                <div class="ux-c-source--item ux-c-source--item__PatternFly"></div>
+			  </div><!--pf-l-split__item-->
+              <div class="pf-l-split__item"> 
+                <p><a href="https://www.patternfly.org/v4/get-started/design" role="link" target="_blank">PatternFly Design: Getting started documentation </a><br> 
+                  <small>PatternFly</small></p>
+              </div><!--pf-l-split__item-->
+			</div>
+				
+            <div class="pf-l-split pf-m-gutter ux-c-split--spacer">
+              <div class="pf-l-split__item">
+                <div class="ux-c-source--item ux-c-source--item__Sketch"></div>
+              </div><!--pf-l-split__item-->
+              <div class="pf-l-split__item"> 
+                <p><a href="https://www.sketch.com/s/729c2eee-e8b6-4fcd-8a79-f6faa8c30f89n" role="link" target="_blank">PatternFly Design Kit </a><br> 
+                  <small>Sketch</small></p>
+              </div><!--pf-l-split__item-->
+            </div>
+				
+            <div class="pf-l-split pf-m-gutter ">
+              <div class="pf-l-split__item">
+                <div class="ux-c-source--item ux-c-source--item__RH-Content"></div>
+              </div><!--pf-l-split__item-->
+              <div class="pf-l-split__item"> 
+                <p><a href="https://cloud.redhat.com/blog/identify-installation-gaps-for-operator-backed-layered-products
+                  " role="link" target="_blank">Identify Installation Gaps for Operator-Backed Layered Products</a><br> 
+                  <small>Blog post</small></p>
+              </div><!--pf-l-split__item-->
+            </div>
+			</div>
+			
+			  	
+			<h2 id="what">What are Red Hat OpenShift Operators?</h2>
+			<p>Red Hat OpenShift Operators are a way to automate the management of applications on OpenShift. Operators use custom resources to define and manage the application lifecycle. Operators can be used to manage anything from databases to applications.</p>
+
+			<p>Operators are built using the Operator Framework, which provides a toolkit for building, testing, packaging, and deploying operators. The Operator Framework includes several APIs that make it easier to interact with Kubernetes and manage resources.</p>
+			
+			<figure class="ux-c-figure">
+				<img class="ux-c-figure--img" src="https://matthewcarleton.github.io/uxdhub/assets/images/operator-hub.png" role="img" alt="OpenShift Operator Hub"/>
+				<figcaption>OpenShift Operator Hub Catalog view</figcaption>
+						  
+			</figure>
+			
+			<hr class="pf-c-divider ux-c-divider">
+
+			<h2 id="why">Why use Red Hat OpenShift Operators?</h2>
+
+			<p>Red Hat OpenShift Operators offer several benefits for product designers, including:</p>
+			<ul>
+			  <li><strong>Automation:</strong> Operators automate the management of applications, making it easier to deploy, manage, and scale applications on OpenShift.</li>
+			  <li><strong>Consistency:</strong> Operators provide a consistent way to manage applications, regardless of the underlying infrastructure.</li>
+			  <li><strong>Flexibility:</strong> Operators can be used to manage a wide range of applications, from databases to applications.</li>
+			  <li><strong>Scalability:</strong> Operators can be used to automatically scale applications based on demand, making it easier to handle spikes in traffic.</li>
+			</ul>
+			
+			<hr class="pf-c-divider ux-c-divider">
+
+			<h2 id="how">How do Red Hat OpenShift Operators work?</h2>
+
+			<p>Red Hat OpenShift Operators use custom resources to define and manage the application lifecycle. Custom resources are used to define the application's properties and the desired state.</p>
+
+			<p>The Operator Framework includes several APIs that make it easier to interact with Kubernetes and manage resources. These APIs can be used to manage resources, create custom resources, and reconcile the desired state with the actual state.</p>
+
+			<p>Operators use the Controller pattern to reconcile the desired state with the actual state. The Controller pattern watches for changes in the resources and takes actions to ensure that the resources are in the desired state.</p>
+			
+		  	<hr class="pf-c-divider ux-c-divider">
+
+			<h2 id="tips">Tips for designing Red Hat OpenShift Operators:</h2>
+
+			<p>Here are some tips for product designers to keep in mind when designing Red Hat OpenShift Operators:</p>
+
+			<ul>
+				<li><strong>Keep it simple:</strong> Start with a simple use case and build from there. Don't try to build a complex operator right away.
+				<li><strong>Use the Operator Framework:</strong> Use the <a href="https://operatorframework.io/" title="Operator Framework" role="link" aria-label="Operator Framework" target="_blank">Operator Framework</a> to build, test, package, and deploy your operator. The Operator Framework provides a set of tools and APIs that make it easier to create custom operators.</li>
+				<li><strong>Use custom resources:</strong> Use custom resources to define the application's properties and the desired state. Custom resources make it easier to manage applications on OpenShift.</li>
+				<li><strong>Use the Controller pattern:</strong> Use the Controller pattern to reconcile the desired state with the actual state. The Controller pattern watches for changes in the resources and takes actions to ensure that the resources are in the desired state.</li>
+				<li><strong>Test your operator:</strong> Test your operator thoroughly before deploying it to your OpenShift cluster. Use tools like Minikube or Kind to test your operator in a local environment.</li>
+			</ul>
+			
+			<hr class="pf-c-divider ux-c-divider">
+
+			<h2 id="resources">Resources</h2>
+
+			<p>If you're a product designer looking to get started with designing operators for Red Hat OpenShift, be sure to check out these design resources to help you get started quickly and easily:</p>
+			<figure class="ux-c-figure">
+				<img class="ux-c-figure--img" src="https://matthewcarleton.github.io/uxdhub/assets/images/operatorframework.png" role="img" alt="Operator framework logo"/>						  
+			</figure>
+
+			<p>Websites:</p>
+
+		  	<ul>
+			
+			  <li><strong>Operator SDK:</strong> The <a href="https://sdk.operatorframework.io/" role="link" title="Operator SDK" aria-label="Operator SDK" target="_blank">Operator SDK</a> is a set of tools that can help you quickly create and build your operator.</li>
+			  <li><strong>Operator Lifecycle Manager:</strong> The <a href="https://olm.operatorframework.io/" role="link" title="Operator OLM" aria-label="Operator OLM" target="_blank">Operator Lifecycle Manager (OLM)</a> extends Kubernetes to provide a declarative way to install, manage, and upgrade Operators on a cluster.</li>
+			  <li><strong>OperatorHub.io:</strong> <a href="https://OperatorHub.io" role="link" title="OperatorHub.io" aria-label="OperatorHub.io" target="_blank">OperatorHub.io</a> is a community-driven platform for sharing and discovering operators. Here, you can find existing operators that can serve as inspiration or be used as a starting point for your own custom operator.</li>
+			  <li><strong>OpenShift documentation:</strong> The official <a href="https://www.redhat.com/en/technologies/cloud-computing/openshift/what-are-openshift-operators" role="link" title="OpenShift documentation" aria-label="OpenShift documentation" target="_blank">OpenShift documentation</a> is an excellent resource for learning about operators and how they work. This documentation includes detailed guides, examples, and best practices for designing, building, and deploying operators on OpenShift.</li>
+			</ul>
+			
+			<p>Articles:</p>
+			<ul>
+				<li><a href="https://cloud.redhat.com/blog/identify-installation-gaps-for-operator-backed-layered-products" title="Link to artcle: Identify Installation Gaps for Operator-Backed Layered Product" role="link" target="_blank">Identify Installation Gaps for Operator-Backed Layered Products</a></li>
+			</ul>
+
+			<p>By leveraging these design resources, you can accelerate your learning and development process, and start creating custom operators for OpenShift in no time.</p>
+
+			<hr class="pf-c-divider ux-c-divider">
+
+			<h2 id="conclusion">Conclusion</h2>
+
+			<p>Red Hat OpenShift Operators are a powerful tool for product designers to use in their work. By automating the management of applications on OpenShift, Operators make it easier to deploy, manage, and scale applications. With the right guidance and tools, product designers can create custom operators to manage their applications on OpenShift.</p>
+        	</article>
+
+            </div>
+            <div class="ux-c-entry__info" id="col-3">
+            	<button class="pf-c-button pf-m-plain close" id="close">
+                <svg  width="20px" xmlns="http://www.w3.org/2000/svg"  width="20px" viewBox="0 0 384 512"><path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3l105.4 105.3c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256l105.3-105.4z"/></svg></button>
+{!--               	<div id="entry-info"> --}
+               <section class="ux-c-sidePanel--section">
+            	<h3 class="ux-c-split--spacer">Operator contacts</h3>     
+            <h4>Product Managers</h4>
+            <div class="pf-l-split pf-m-gutter ux-c-split--spacer">  
+                <div class="pf-l-split__item">
+                	{if avatar}
+                 <img class="pf-c-avatar pf-m-dark ux-c-login__avatar" alt="Avatar image dark" src="https://matthewcarleton.github.io/uxdhub/assets/images/avatar.png"/>
+	                  {if:else}
+                      	<img class="pf-c-avatar pf-m-dark ux-c-login__avatar" alt="Avatar image dark" src="https://matthewcarleton.github.io/uxdhub/assets/images/operator-pm-wu.png"/>
+                    {/if}
+                </div><!--pf-l-split__item-->
+              <div class="pf-l-split__item"> 
+                <p>Tony Wu<br> 
+                <small>OLM Product Manager</small></p>
+              </div><!--pf-l-split__item-->
+            </div><!--pf-l-split-->
+            <div class="pf-l-split pf-m-gutter">
+              
+                <div class="pf-l-split__item">
+                	{if avatar}
+{!--                       <img class="pf-c-avatar" src="{avatar_url}" alt="{author} avatar"/> --}
+                            <img class="pf-c-avatar pf-m-dark ux-c-login__avatar" alt="Avatar image dark" src="https://matthewcarleton.github.io/uxdhub/assets/images/avatar.png"/>
+	                  {if:else}
+                      	<img class="pf-c-avatar pf-m-dark ux-c-login__avatar" alt="Avatar image dark" src="https://matthewcarleton.github.io/uxdhub/assets/images/operator-pm.png"/>
+                    {/if}
+                </div><!--pf-l-split__item-->
+              <div class="pf-l-split__item"> 
+                <p>Ali Mobrem<br> 
+                <small>OpenShift Product Manager</small></p>
+              </div><!--pf-l-split__item-->
+            </div><!--pf-l-split-->
+            </section>
+            <section class="ux-c-sidePanel--section"> 
+            <h4>Design Lead</h4>
+            <div class="pf-l-split pf-m-gutter">          
+                <div class="pf-l-split__item">
+                	{if avatar}
+                      <img class="pf-c-avatar" src="{avatar_url}" alt="{author} avatar"/>
+	                  {if:else}
+                      	<img class="pf-c-avatar pf-m-dark ux-c-login__avatar" alt="Avatar image dark" src="https://matthewcarleton.github.io/uxdhub/assets/images/operator-lead.png"/>
+                    {/if}
+                </div><!--pf-l-split__item-->
+              <div class="pf-l-split__item"> 
+                <p>Yuval Galanti<br> 
+                <small>UX Manager</small></p>
+              </div><!--pf-l-split__item-->
+            </div><!--pf-l-split-->
+{!--             </div>
+            </div> --}
+            </section>
+        </div>

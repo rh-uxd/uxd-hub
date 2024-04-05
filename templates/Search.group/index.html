@@ -1,0 +1,100 @@
+{layout='layouts/_new-html-wrapper'}
+		<section class="pf-c-page__main-section pf-m-light pf-u-pt-4xl">
+		<div class="pf-l-split">
+              <div class="pf-l-split__item pf-m-fill">
+                <div class="pf-c-content">
+{exp:pro_search:results
+    query="{segment_2}"
+    keywords:inflect="yes"
+    keywords:loose="right"
+    keywords:mode="all"
+    }
+    
+    {if count == 1}
+    {layout:set name='title' value='results for {pro_search_keywords}'}
+    <h1>
+      Searched for <strong>{pro_search_keywords}</strong>.
+      Search results: <strong>{absolute_results}</strong>
+    </h1>
+  {/if}
+  {/exp:pro_search:results}
+                </div>
+              </div>
+			  </div>
+			  </section>
+		<section class="pf-c-page__main-section pf-m-light">
+        <div class="pf-c-content">
+        	<h2 class="pf-u-mb-xl">Design entries</h2>
+        </div>
+            <div class="pf-l-gallery pf-m-gutter"> 
+              {exp:pro_search:results
+    query="{segment_2}" 
+    channel="entry"
+    keywords:inflect="yes"
+    keywords:loose="right"
+    keywords:mode="all"
+    }
+{snp_design_card}
+   {if pro_search_no_results}
+   <div class="pf-c-content">
+   <h3>
+      No results for “{pro_search_keywords}" in Design.
+    </h3>
+    </div>
+  {/if}
+{/exp:pro_search:results}
+</div>
+</section>
+        
+        <section class="pf-c-page__main-section pf-m-light">
+       <div class="pf-c-content">
+        	<h2 class="pf-u-mb-xl">Content snippets</h2>
+        </div>
+            <div class="pf-l-stack pf-m-gutter"> 
+              {exp:pro_search:results
+    query="{segment_2}" 
+  channel="content"
+  keywords:inflect="yes"
+    keywords:loose="right"
+    keywords:mode="all"
+    }
+
+				{snp_content_card}
+                {if pro_search_no_results}
+   <div class="pf-c-content">
+   <h3>
+      No results for “{pro_search_keywords}” in Content Design.
+    </h3>
+    </div>
+  {/if}
+  {/exp:pro_search:results}
+          </div>
+        </section>
+        
+        <section class="pf-c-page__main-section pf-m-light">
+        <div class="pf-c-content">
+        	<h2 class="pf-u-mb-xl">Research entries</h2>
+        </div>
+    {if logged_out}
+    {embed="member/login-form" redirect="areas/research" MaxWidth="300px" MinWidth="300px"}
+    {/if}
+    <div class="pf-l-gallery pf-m-gutter">         
+    {if logged_in}
+              {exp:pro_search:results
+    query="{segment_2}" 
+    channel="research"
+    collection="research"
+    keywords:inflect="yes"
+    keywords:loose="right"
+    keywords:mode="all"
+    }    
+		{snp_research_card}
+        {if pro_search_no_results}
+   <div class="pf-c-content">
+   <h3>No results for “{pro_search_keywords}" in Research.</h3>
+    </div>
+    {/if}
+  {/exp:pro_search:results}
+{/if}
+          </div>
+        </section>

@@ -1,0 +1,10 @@
+{layout='layouts/_new-html-wrapper'}
+{layout:set name='title' value='Login'}
+ <section class="pf-c-content pf-c-page__main-section pf-m-light pf-u-pt-4xl">
+ {if logged_in}
+ <h1>You are currently logged in</h1>
+ {/if}
+ {if logged_out}
+{embed="member/login-form" redirect="home/index" MaxWidth="400px" MinWidth="40vw"}
+{/if}
+</section>

@@ -1,0 +1,94 @@
+{layout='layouts/_new-html-wrapper'}
+{!-- {if segment_4}
+	{redirect='{segment_1}/{segment_2}/{segment_3}'}
+{/if} --}
+{!-- page vars (prefix p_) --}
+{preload_replace:p_title='Entries'}
+{preload_replace:p_url='Entry'}
+{preload_replace:p_url_entry='Entry'}
+{!-- channel vars (prefix ch_) --}
+{preload_replace:ch='Entry|Methods'}
+{preload_replace:ch_disable='category_fields|member_data|pagination'}
+{!-- layout vars, channel/page related --}
+{layout:set name='ch' value='{ch}'}
+{layout:set name='p_url' value='{p_url}'}
+{layout:set name='p_title' value='{p_title}'}
+{!-- single-entry pagination --}
+{!-- require_entry makes it so if someone types the wrong URL, they will get a 404 page --}
+{exp:channel:entries disable="{ch_disable}" channel="{ch}" limit='1' track_views="one"}
+{!-- layout vars, dynamic, not output --}
+
+{layout:set name='title' value='{segment_3}'}
+{layout:set name='entry_ch' value='{ch}'}
+{!-- OpenGraph meta output --}
+{layout:set name='og_title' value='{categories show_group="2"}{category_name}{/categories} | {segment_3}'}
+{layout:set name='og_url'}{path='{p_url}'}{/layout:set}
+{layout:set name='og_description' value=' {categories show_group="2"}{category_name}{/categories} convention'} 
+{!-- /layout vars, dynamic, not output --} 
+{if no_results}
+{redirect='404'}
+{/if}
+{!-- {exp:channel:entries} --}
+<div class="ux-l-page-wrapper" id="page-content">
+            <button class="pf-c-button pf-m-plain drawer-toggle-button" id="toggle">
+            <svg width="20px" xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 49.9 36.49"><defs><style>.cls-1001{fill:none;stroke:#4f575e;stroke-linecap:round;stroke-miterlimit:10;stroke-width:5px}</style></defs><path d="M2.5 17.31 32.88 17.31M18.98 3.33 32.78 17.13M18.98 31.13 32.78 17.33M47.4 33.99 47.4 2.5" class="cls-1001"></path></svg>
+              </button>
+            <div class="ux-c-entry__toc">         
+             {if channel_short_name == "entry"}
+              <a class="pf-c-button pf-m-link" href="{path="areas/design"}">Back to Designs page</a>
+    		{if:else}
+              <a class="pf-c-button pf-m-link" href="{path="areas/methods"}">Back to Methods page</a>
+{/if}
+                <div class="ux-c-toc" id="toc">
+                	<header class="ux-c-toc__header">
+                    <h2 class="pf-c-title pf-m-xl">Table of Contents</h2>
+                    <button class="pf-c-button pf-m-plain toc-toggle" id="TocToggle">
+                		 <svg width="20px" xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 49.9 36.49"><defs><style>.cls-1001{fill:none;stroke:#4f575e;stroke-linecap:round;stroke-miterlimit:10;stroke-width:5px}</style></defs><path d="M2.5 17.31 32.88 17.31M18.98 3.33 32.78 17.13M18.98 31.13 32.78 17.33M47.4 33.99 47.4 2.5" class="cls-1001"></path></svg>
+              		</button>
+                    </header>
+                    <nav class="pf-m-vertical">
+                    	<ul class="ux-c-toc__list">
+                          {content_section}
+                          <li class="ux-c-toc__listItem"><a class="ux-c-toc__link{if {last_segment} =='{title}#{title}_heading_{content_section:row_id}'}pf-m-current{/if}" href="#{last_segment}_heading_{content_section:row_id}">{content_section:heading}</a></li>          
+                        {/content_section}
+                      </ul>
+              		</nav>
+                </div>
+            </div>
+            <article class="pf-m-light pf-m-fill pf-c-content ux-c-entry__content" >
+              	
+                    <h1>{title}</h1>
+                   {if channel_short_name == "entry"}
+                   <small>Design type:{categories show_group="1" style="linear" backspace="2"} <a href="{path='areas/design/'}">{category_name}</a>, {/categories}</small>
+<small>Product area: {categories show_group="2" style="linear" backspace="2"}<a href="{path='areas/design/'}">{category_name}</a>, {/categories}</small>
+{/if}
+                  	{content_section}
+             			<h2 id="{last_segment}_heading_{content_section:row_id}">{content_section:heading}</h2> 
+
+			 
+			 
+		{content_section:product_usage status="open"}
+		{if content_section:product_usage:count == 1}
+		<div class="pf-c-label-group pf-m-category">
+		  <div class="pf-c-label-group__main">
+			<span class="pf-c-label-group__label" aria-hidden="true" id="label-group-category-label">Area Usage:  			{content_section:product_usage:total_results}</span>
+			  <ul class="pf-c-label-group__list" role="list" aria-labelledby="label-group-category-label">
+				<li class="pf-c-label-group__list-item">
+				<span class="pf-c-label pf-m-blue">
+				  <span class="pf-c-label__content">
+				  {content_section:product_usage:title}
+				  </span>
+				</span>
+				</li>    
+			  </ul>
+		  </div><!--pf-c-label-group__main-->
+		</div><!--pf-c-label-group-->
+		{/if}
+		{/content_section:product_usage}
+		{content_section:content}
+		<hr class="pf-c-divider pf-u-mt-lg">
+		{/content_section}
+        	</article>
+        {/exp:channel:entries}
+        {snp_entry-info_side}
+        </div>

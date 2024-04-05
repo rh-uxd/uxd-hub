@@ -1,0 +1,232 @@
+{layout='layouts/_new-html-wrapper'}
+{!-- {if segment_4}
+	{redirect='{segment_1}/{segment_2}/{segment_3}'}
+{/if} --}
+{!-- page vars (prefix p_) --}
+{preload_replace:p_title='Entries'}
+{preload_replace:p_url='Entry'}
+{preload_replace:p_url_entry='Entry'}
+{!-- channel vars (prefix ch_) --}
+{preload_replace:ch='Entry|Methods'}
+{preload_replace:ch_disable='category_fields|member_data|pagination'}
+{!-- layout vars, channel/page related --}
+{layout:set name='ch' value='{ch}'}
+{layout:set name='p_url' value='{p_url}'}
+{layout:set name='p_title' value='{p_title}'}
+{!-- single-entry pagination --}
+{!-- require_entry makes it so if someone types the wrong URL, they will get a 404 page --}
+{exp:channel:entries disable="{ch_disable}" channel="{ch}" status="draft|open" limit='1' track_views="one" cache="yes" refresh="60"}
+{!-- layout vars, dynamic, not output --}
+
+{layout:set name='title' value='{segment_3}'}
+{layout:set name='entry_ch' value='{ch}'}
+{!-- OpenGraph meta output --}
+{layout:set name='og_title' value='{categories show_group="2"}{category_name}{/categories} | {segment_3}'}
+{layout:set name='og_url'}{path='{p_url}'}{/layout:set}
+{layout:set name='og_description' value=' {categories show_group="2"}{category_name}{/categories} convention'} 
+{!-- /layout vars, dynamic, not output --} 
+{if no_results}
+{redirect='404'}
+{/if}
+{!-- {exp:channel:entries} --}
+<div class="ux-l-page-wrapper" id="page-content">
+            <button class="pf-c-button pf-m-plain drawer-toggle-button {!--toggle-btn ux-c-button--drawer--}" id="toggle">
+            <svg width="20px" xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 49.9 36.49"><defs><style>.cls-1001{fill:none;stroke:#4f575e;stroke-linecap:round;stroke-miterlimit:10;stroke-width:5px}</style></defs><path d="M2.5 17.31 32.88 17.31M18.98 3.33 32.78 17.13M18.98 31.13 32.78 17.33M47.4 33.99 47.4 2.5" class="cls-1001"></path></svg>
+              </button>
+            <div class="ux-c-entry__toc">         
+             {if channel_short_name == "entry"}
+              <a class="pf-c-button pf-m-link" href="{path="areas/design"}">Back to Designs page</a>
+    		{if:else}
+                          <a class="pf-c-button pf-m-link" href="{path="areas/methods"}">Back to Methods page</a>
+{/if}
+                <div class="ux-c-toc" id="toc">
+                	<header class="ux-c-toc__header">
+                    <h2 class="pf-c-title pf-m-xl">Table of Contents</h2>
+                    <button class="pf-c-button pf-m-plain toc-toggle" id="TocToggle">
+                		 <svg width="20px" xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 49.9 36.49"><defs><style>.cls-1001{fill:none;stroke:#4f575e;stroke-linecap:round;stroke-miterlimit:10;stroke-width:5px}</style></defs><path d="M2.5 17.31 32.88 17.31M18.98 3.33 32.78 17.13M18.98 31.13 32.78 17.33M47.4 33.99 47.4 2.5" class="cls-1001"></path></svg>
+              		</button>
+                    </header>
+                    <nav class="pf-m-vertical">
+                    	<ul class="ux-c-toc__list">
+                          {content_section}
+                          <li class="ux-c-toc__listItem"><a class="ux-c-toc__link{if {last_segment} =='{title}#{title}_heading_{content_section:row_id}'}pf-m-current{/if}" href="#{last_segment}_heading_{content_section:row_id}">{content_section:heading}</a></li>          
+                        {/content_section}
+                      </ul>
+              		</nav>
+                </div>
+            </div>
+            <article style="max-width:1100px" class="pf-m-light pf-m-fill pf-c-content ux-c-entry__content" >
+              	
+                    <h1>{title}</h1>
+                   {if channel_short_name == "entry"}
+                   <small>Design type:{categories show_group="1" style="linear" backspace="2"} <a href="{path='areas/design/'}">{category_name}</a>, {/categories}</small>
+<small>Product area: {categories show_group="2" style="linear" backspace="2"}<a href="{path='areas/design/'}">{category_name}</a>, {/categories}</small>
+{/if}
+                  	{content_section}
+             			<h2 id="{last_segment}_heading_{content_section:row_id}">{content_section:heading}</h2> 
+
+			 
+			 
+		{content_section:product_usage status="open"}
+		{if content_section:product_usage:count == 1}
+		<div class="pf-c-label-group pf-m-category">
+		  <div class="pf-c-label-group__main">
+			<span class="pf-c-label-group__label" aria-hidden="true" id="label-group-category-label">Area Usage:  			{content_section:product_usage:total_results}</span>
+			  <ul class="pf-c-label-group__list" role="list" aria-labelledby="label-group-category-label">
+				<li class="pf-c-label-group__list-item">
+				<span class="pf-c-label pf-m-blue">
+				  <span class="pf-c-label__content">
+				  {content_section:product_usage:title}
+				  </span>
+				</span>
+				</li>    
+			  </ul>
+		  </div><!--pf-c-label-group__main-->
+		</div><!--pf-c-label-group-->
+		{/if}
+		{/content_section:product_usage}
+		{content_section:content}
+		<hr class="pf-c-divider pf-u-mt-lg">
+		{/content_section}
+        	</article>
+
+        {/exp:channel:entries}
+            <div class="ux-c-entry__info" id="col-3">
+            	<button class="pf-c-button pf-m-plain close" id="close">
+                <svg  width="20px" xmlns="http://www.w3.org/2000/svg"  width="20px" viewBox="0 0 384 512"><path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3l105.4 105.3c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256l105.3-105.4z"/></svg></button>
+              	<div id="entry-info">
+                  <h2 class="pf-c-title pf-m-xl">Entry details</h2>              		
+                  	{exp:channel:entries status="draft|open" cache="yes" refresh="60" channel="{ch}"}
+                      <section class="ux-c-sidePanel--section">
+						<h3>Author</h3>
+                          <div class="pf-l-split pf-m-gutter">
+              				<div class="pf-l-split__item">
+                                {if avatar}
+                                  <img class="pf-c-avatar" src="{avatar_url}" alt="{author} avatar"/>
+                                  {if:else}
+                                    <img class="pf-c-avatar pf-m-dark ux-c-login__avatar" alt="Avatar image dark" src="{theme_user_folder_url}site/default/asset/img/common/avatar.png"/>
+                                {/if}
+                            </div><!--pf-l-split__item-->
+                            <div class="pf-l-split__item"> 
+                              <p>{author}<br> 
+                              <small>{entry_date format="%F %d, %Y"}</small></p>
+                            </div><!--pf-l-split__item-->
+                        </div><!--pf-l-split-->
+
+                      </section>
+                      {if channel_short_name == "entry"}
+                      <section class="ux-c-sidePanel--section">
+						<h3>Related research</h3>
+
+                      {related_research}
+    {if related_research:no_results}
+        <p>No <a href="{path='areas/research'}" title="research entries" role="link">research entries</a> have been linked to this design.</p>
+    {/if}
+{!--     {if logged_out}
+    	<p>Login to view associated research entries.</p>
+    {/if} --}
+    {if logged_in}
+            <div class="pf-l-split pf-m-gutter pf-u-pb-xs">
+                <div class="pf-l-split__item">
+                    {related_research:external_resource}
+
+                        {if '{external_resource:resource_type:value}' == 'slidedeck'}
+                        <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 54.94 54.94"><defs><style>.cls-142{fill: #eab73e;}.cls-242 {fill: #fff;}</style></defs><rect class="cls-142" width="54.94" height="54.94" rx="4" ry="4"/><rect class="cls-242" x="9.16" y="16.94" width="36.63" height="21.06" transform="translate(54.94 54.94) rotate(180)"/></svg>
+                            {if:elseif '{external_resource:resource_type:value}' == 'document'}
+                            <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 38.62 38.62"><defs> <style>.cls-131 {fill: #fff;}.cls-231 {fill: #5383ec;}</style></defs><rect class="cls-231" width="38.62" height="38.62" rx="4" ry="4"/><rect class="cls-131" x="6.44" y="6.76" width="25.74" height="4.7"/><rect class="cls-131" x="6.44" y="17.18" width="25.74" height="4.48" transform="translate(38.62 38.85) rotate(180)"/><rect class="cls-131" x="6.44" y="27.61" width="18.21" height="4.52"/>
+                            </svg>
+
+                            {if:elseif '{external_resource:resource_type:value}' == 'spreadsheet'}
+                            <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 38.62 38.62"><defs><style>.cls-191 {fill: #fff;}.cls-291 {fill: #479b5f;}</style></defs><rect class="cls-291" width="38.62" height="38.62" rx="4" ry="4"/><rect class="cls-191" x="-2.33" y="16.67" width="31.53" height="5.27" transform="translate(32.75 5.87) rotate(90)"/>
+                                <rect class="cls-191" x="3.54" y="11.65" width="31.53" height="5.27"/>
+                            </svg>
+
+                            {if:elseif '{external_resource:resource_type:value}' == 'miro'}
+                            Miro
+                            
+                            {if:elseif '{external_resource:resource_type:value}' == 'form'}
+                            <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 38.62 38.62"><defs><style>.cls-146 {fill: #fff;}.cls-246 {fill: #6d2cb4;}</style></defs><rect class="cls-246" width="38.62" height="38.62" rx="4" ry="4"/><g><rect class="cls-146" x="13.65" y="26.82" width="18.21" height="4.41" transform="translate(45.51 58.04) rotate(180)"/><rect class="cls-146" x="6.44" y="26.82" width="4.89" height="4.41"/></g><g><rect class="cls-146" x="13.65" y="5.91" width="18.21" height="4.43" transform="translate(45.51 16.25) rotate(180)"/><rect class="cls-146" x="6.44" y="5.91" width="4.89" height="4.43"/></g><g><rect class="cls-146" x="13.65" y="16.36" width="18.21" height="4.2" transform="translate(45.51 36.92) rotate(180)"/><rect class="cls-146" x="6.44" y="16.36" width="4.89" height="4.2"/></g></svg>
+                            
+                            {if:else}
+                            link
+                        {/if}
+                    {/related_research:external_resource}
+                </div><!--pf-l-split__item-->
+                <div class="pf-l-split__item pf-l-content"> 
+                    {related_research:external_resource}
+
+                        <p><a href="{external_resource:link_url}" title="Go to {related_research:title}" target="blank" role="link">{related_research:title}</a><br> 
+                        <small>{related_research:categories show_group="3" style="linear" backspace="2"}{category_name}, {/related_research:categories} - {related_research:publish_year}</small></p>
+                        
+                    {/related_research:external_resource}
+
+                </div><!--pf-l-split__item-->
+            </div><!--pf-l-split-->
+    {/if}
+{/related_research}
+                      </section>
+                      {/if}
+
+                      <section class="ux-c-sidePanel--section">
+{!-- 				{if logged_in} --}
+		            <h4>Resources</h4>
+		            {convention_sources}
+		            	
+                        {if logged_out AND convention_sources:private == "private"}
+                        <p>Login to see resources</p>
+                        {if:else}
+{!--                         {if convention_sources:total_rows >= 1} --}
+			                <div class="pf-l-split pf-m-gutter pf-u-pb-xs">
+			                    <div class="pf-l-split__item">
+			                      <div class="ux-c-source--item ux-c-source--item__{convention_sources:resource_types:value}"></div>
+			                    </div><!--pf-l-split__item-->
+								<div class="pf-l-split__item pf-l-content"> 
+			                		<p><a href="{convention_sources:resource_links}" title="Go to {convention_sources:resource_name}" target="blank" role="link">{convention_sources:resource_name}</a><br> 
+			                		<small>{convention_sources:resource_types:label}</small></p>
+								</div><!--pf-l-split__item-->
+			            	</div><!--pf-l-split-->
+                            {/if}
+{!-- 						{/if} --}
+                        		            {/convention_sources}
+
+						{if convention_sources:total_rows == 0}
+			            	<small>No resources available for this entry.</small>
+			          	{/if}
+{!-- 			    {/if} --}
+{!-- 				{if logged_out}
+              </section>
+               <section class="ux-c-sidePanel--section">
+		            <h4>Source files</h4>
+		            <small><a href="https://uxd-hub.com/member/login" role="link" title="Login to view resources" aria-label="Login to view resources">Login</a> to have access to supporting resources.</small>
+				{/if} --}
+		</section>
+        {if patternfly_components}
+         <section class="ux-c-sidePanel--section">
+            <h4>PatternFly components</h4>
+	            {patternfly_components}	
+		            <div class="pf-c-chip" style="margin: 0 5px 5px 0">
+	                  <span class="pf-c-chip__text"><a href="{item:value}" title="View results" role="link" target="_blank">{item:label}</a></span>
+	                </div>
+                 {/patternfly_components}
+          </section>
+		 {/if}
+            	
+				<section class="ux-c-sidePanel--section" style="margin-top:10px">
+                  <h4>Additional tags</h4>
+                  {exp:tag:tags channel="{ch}" orderby="tag_name" sort="asc" limit="10" backspace="2"}
+                  
+                  <span class="pf-c-label pf-m-blue ux-c-label--tags" >
+                  	<a class="pf-c-label__content ux-c-label--tags--link"href="{path='entries/tag'}/{websafe_tag}" title="View {tag} results" role="link"># {tag}&nbsp;<span class="pf-c-badge pf-m-read">{total_entries}</span></a>
+                  </span>
+                  
+{!--                   <div class="pf-c-chip" style="margin: 0 5px 5px 0">
+                    <span class="pf-c-chip__text"><a href="{path='entries/tag'}/{websafe_tag}" title="View {tag} results" role="link" style="text-transform: capitalize;">{tag}</a></span><span class="pf-c-badge pf-m-read">{total_entries}</span>
+				  </div> --}
+                   {if tag_no_results} <small>no tags are assigned to this entry.</small>  {/if}  
+                  {/exp:tag:tags}
+                </section>
+               		{/exp:channel:entries}
+
+            </div>
+            </div>
+        </div>

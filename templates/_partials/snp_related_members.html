@@ -1,0 +1,20 @@
+ <section class="pf-c-page__main-section pf-m-light pf-c-content">
+  <h3 class="pf-u-mb-xl">Team Members</h3>
+  <div style="--pf-l-gallery--GridTemplateColumns--min: 200px;" class="pf-l-gallery pf-m-gutter">
+  {related_members}
+  <div class="pf-c-card ux-c-card">
+    <div class="pf-c-card__header pf-u-justify-content-center">
+    {if avatar_filename}
+     <img class="pf-c-avatar ux-c-avatar ux-c-avatar__lg" src="/images/avatars/{avatar_filename}" alt="{screen_name} avatar"/>
+  {if:else}
+     <img class="pf-c-avatar ux-c-avatar ux-c-avatar__lg" alt="Avatar image dark" src="{theme_user_folder_url}site/default/asset/img/common/avatar.png"/>
+  {/if}
+  </div>
+  <div class="pf-c-card__footer pf-u-text-align-center">
+  <h4 class="pf-u-mt-lg">{screen_name}</h4>
+  <p>{ux-role}</p>
+  </div>  
+  </div><!-- end card-->
+  {/related_members}
+  </div><!-- end gallery-->
+</section>

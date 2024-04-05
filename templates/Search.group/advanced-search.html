@@ -1,0 +1,42 @@
+{layout='layouts/_new-html-wrapper'}
+		<section class="pf-c-page__main-section pf-m-light pf-u-pt-4xl">
+		<div class="pf-l-split">
+              <div class="pf-l-split__item pf-m-fill">
+                <div class="pf-c-content">
+{if segment_3 ==""}
+<h1>Choose the date range you'd like results for</h1>
+{if:else}
+<h1>Participant count for the following date range:</h1>
+{/if}
+{exp:pro_search:form 
+query="{segment_3}"
+channel="research"
+collection="research"
+form_id="dateForm"
+}
+  <input type="date" id="range-from:entry_date" name="range-from:entry_date"> -
+  <input type="date" id="range-to:entry_date" name="range-to:entry_date">
+  <button type="submit">Go</button>
+{/exp:pro_search:form}
+{if segment_3 !=""}
+{exp:pro_search:results
+  query="{segment_3}"
+  channel="research"
+  collection="research"
+}
+{if count == 1}
+<div class="pf-c-content">
+<br>
+  <p>Internal :<strong id="sumResultGroup1"></strong></p>
+  <p>External :<strong id="sumResultGroup2"></strong></p>
+  <p>Total :<strong id="totalSumResult"></strong></p>
+  {/if}
+  <p>{entry_date format="%Y"}: {title} |Ex: <span class="count group1">{ex_participant_count}</span> Int: <span class="count group2">{int_participant_count}</span></p>
+ </div> 
+{!--   {paginate}
+    {current_page}/{total_pages} | {pagination_links}
+  {/paginate} --}
+{/exp:pro_search:results}
+{/if}
+          </div>
+        </section>

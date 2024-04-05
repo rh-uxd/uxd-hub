@@ -1,0 +1,46 @@
+{layout='layouts/_new-html-wrapper'}
+{exp:channel:entries channel="areas" entry_id="81" dynamic="no" cache="yes" refresh="60"}
+{layout:set name='title' value='{title}'}
+{snp_area_head}
+
+{/exp:channel:entries}
+<section class="pf-c-page__main-section ux-l-content-wrap pf-m-light pf-l-flex pf-m-align-items-flex-start">
+<div class="pf-l-split pf-u-w-100 pf-m-gutter pf-u-mt-md pf-u-mb-md pf-m-wrap">
+{exp:channel:entries channel="areas" cache="yes" refresh="60" entry_id="81" dynamic="no"}
+{snp_area_resource}
+{/exp:channel:entries}
+</div>
+  <div class="pf-l-split pf-u-justify-content-space-between pf-u-align-items-flex-end pf-u-w-100 pf-u-mb-md">
+  	<div class="pf-l-split__item">
+    	{if segment_3 !="category"}
+        {exp:stats channel="Content"}
+		 <div class="pf-c-content">
+		<small>{total_entries} Microcopy Snippets</small>
+        </div>
+    {/exp:stats}
+   {if:else}
+	<p>Filter Results for <strong>{last_segment}</strong> <a class="pf-c-button pf-m-link" href="{path="areas/Content"}">Clear Filter</a></p>
+{/if}
+  </div>
+  <div class="pf-l-split__item">
+    	<form name="catmenu" action="">
+          <select name="selcat" class="pf-c-form-control ux-c-filter" onchange="location=document.catmenu.selcat.options[document.catmenu.selcat.selectedIndex].value;">
+            <option value="filter by convention">filter</option>
+            {exp:channel:categories channel="Content" category_group="2" style="linear" show_empty="no"}
+            <option value="{path='areas/Content'}">{category_name}</option>
+            {/exp:channel:categories}
+          </select>
+      </form> 
+    </div>
+ </div>
+<div class="pf-l-stack pf-m-gutter">
+{exp:channel:entries cache="yes" refresh="60" orderby='title' channel="Content" sort='asc' } 
+  {snp_content_card}
+  {/exp:channel:entries}
+  </div>
+{!--   </div> --}
+{!--   <div id="tab2" class="ux-c-tab">
+  {exp:channel:entries cache="yes" refresh="60" dynamic="no" entry_id="81" orderby='title' channel="areas" sort='asc'} 
+	{snp_related_members}<!-- re use member list --> 
+  {/exp:channel:entries} --}
+</section>

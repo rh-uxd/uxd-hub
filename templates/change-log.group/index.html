@@ -1,0 +1,20 @@
+{layout='layouts/_new-html-wrapper'}
+    {layout:set name='title' value='Change Log'}
+<section class="pf-c-page__main-section pf-m-light pf-c-content">
+<h1>Change Log</h1>
+    {exp:channel:entries
+        channel="change_log"
+        status="open"
+        dynamic="no"
+        disable="pagination|categories|member_data"
+        cache="yes"
+        refresh="60"  // Set the cache refresh time in minutes
+    }
+
+        <h3>{title}</h3>
+		{content_section}
+		<h4>{content_section:heading}</h4>
+		{content_section:content}
+		{/content_section}
+    {/exp:channel:entries}
+</section>

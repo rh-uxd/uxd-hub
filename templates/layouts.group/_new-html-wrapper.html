@@ -1,0 +1,184 @@
+<!doctype html>
+<html dir="ltr" lang="{lang}">
+	<head class="pf-m-redhat-updated-font">
+	<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-W4JEZT7MTJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-W4JEZT7MTJ');
+</script>
+		<meta charset="utf-8">
+		<title>{if layout:title}{layout:title} |{/if} {if segment_1 == ""}Welcome to {/if}{site_name}</title>
+		<meta name="viewport" content="initial-scale=1">
+		
+		<meta name="title" content="Welcome to uxd-hub.com">
+<meta name="description" content="The Design, Research, and content, resource hub for the User Experience design team at Red Hat. ">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.uxd-hub.com/">
+<meta property="og:title" content="{if layout:title}{layout:title} | UXD Hub{if:else}Welcome to uxd-hub.com{/if}">
+<meta property="og:description" content="The Design, Research, and content, resource hub for the User Experience design team at Red Hat. ">
+<meta property="og:image" content="https://matthewcarleton.github.io/uxdhub/assets/images/uxd-banner-image.png">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://www.uxd-hub.com/">
+<meta property="twitter:title" content="Welcome to uxd-hub.com">
+<meta property="twitter:description" content="The Design, Research, and content, resource hub for the User Experience design team at Red Hat. ">
+<meta property="twitter:image" content="https://matthewcarleton.github.io/uxdhub/assets/images/uxd-banner-image.png">
+<link rel="stylesheet" href="https://matthewcarleton.github.io/uxdhub/assets/styles/pf.min.css"/>
+<link rel="stylesheet" href="https://matthewcarleton.github.io/uxdhub/assets/styles/patternfly-addons.css"/>
+<link rel="stylesheet" type="text/css" media="all" href="https://matthewcarleton.github.io/uxdhub/assets/styles/site-styles.css" />
+</head>
+	<body>
+	{snp_new_header}
+	<div class="pf-c-page" id="design-hub-conventions" style="animation:none;">
+
+<main class="pf-c-page__main" style="overflow-x:visible; overflow-y:unset; background:#fff;" tabindex="-1" id="main-content-design-hub">
+{layout:contents}
+</main>
+</div><!--pf-c-page-->
+</body>
+	  	
+{!-- 		<script src="{theme_user_folder_url}site/default/asset/js/index.js"></script> --}
+        <script src="https://matthewcarleton.github.io/uxdhub/assets/js/index.js"></script>
+        <script>
+    document.getElementById("ux-c-site-search__toggle").addEventListener("click", function() {
+      document.getElementById("ux-m-search-toggle").classList.toggle("ux-m-toggle-object-width");
+    });
+var headerButton = document.getElementById("ux-c-site-header__toggle");
+var headerTarget = document.getElementById("ux-m-header-toggle");
+
+headerButton.addEventListener("click", function() {
+  headerButton.classList.toggle("ux-m-toggle-button");
+  headerTarget.classList.toggle("ux-m-toggle-object");
+});
+function updateURL(selectElement) {
+  var selectedOption = selectElement.value;
+  var currentUrl = window.location.href;
+  var segments = currentUrl.split('/');
+
+  if (segments[segments.length - 1] !== 'design') {
+    segments[segments.length - 1] = selectedOption; // Replace the last segment
+  } else {
+    segments.push(selectedOption); // Append the selected option as a new segment
+  }
+
+  var newUrl = segments.join('/');
+
+  window.location.href = newUrl;
+}
+function updateResearchURL(selectElement) {
+  var selectedOption = selectElement.value;
+  var currentUrl = window.location.href;
+  var segments = currentUrl.split('/');
+
+  if (segments[segments.length - 1] !== 'research') {
+    segments[segments.length - 1] = selectedOption; // Replace the last segment
+  } else {
+    segments.push(selectedOption); // Append the selected option as a new segment
+  }
+
+  var newUrl = segments.join('/');
+
+  window.location.href = newUrl;
+}
+const toggleButton = document.getElementById('toggle');
+                const targetElement = document.getElementById('page-content');
+
+                toggleButton.addEventListener('click', function() {
+                targetElement.classList.toggle('toggle');
+                });
+
+                const closeButton = document.getElementById('close');
+                const details = document.getElementById('page-content');
+
+                closeButton.addEventListener('click', function() {
+                details.classList.toggle('toggle');
+                });
+
+                const tocToggle = document.getElementById('TocToggle');
+                const Toc = document.getElementById('toc');
+
+                tocToggle.addEventListener('click', function() {
+                Toc.classList.toggle('toggle');
+                });
+  </script>
+  {if logged_in}
+  <script>
+  var profileButton = document.getElementById("ux-c-site-header__profile__button");
+var profileTarget = document.getElementById("ux-m-profile-toggle");
+
+profileButton.addEventListener("click", function() {
+  profileButton.classList.toggle("ux-m-toggle-button");
+  profileTarget.classList.toggle("ux-m-toggle-object");
+});
+</script>
+{/if}
+{if segment_2 == "advanced-search"}
+<script>
+    // Function to calculate and display the sum for each group
+    function calculateSum(groupClassName, resultId) {
+        // Select all elements with the specified group class
+        var countElements = document.getElementsByClassName(groupClassName);
+
+        // Initialize sum
+        var sum = 0;
+
+        // Loop through each element and add its value to the sum
+        for (var i = 0; i < countElements.length; i++) {
+            // Parse the text content of the span to a number
+            var value = parseInt(countElements[i].textContent.trim(), 10);
+
+            // Check if the value is a valid number
+            if (!isNaN(value)) {
+                sum += value;
+            }
+        }
+
+        // Display the sum in the designated paragraph element
+        document.getElementById(resultId).textContent = sum;
+
+        return sum;
+    }
+
+    // Call the function for each group when the page is loaded
+    window.onload = function () {
+        var sumGroup1 = calculateSum("group1", "sumResultGroup1");
+        var sumGroup2 = calculateSum("group2", "sumResultGroup2");
+
+        // Calculate and display the total sum
+        var totalSum = sumGroup1 + sumGroup2;
+        document.getElementById("totalSumResult").textContent = totalSum;
+    };
+    function saveDate(inputId) {
+            var selectedDate = document.getElementById(inputId).value;
+            localStorage.setItem(inputId, selectedDate);
+        }
+
+        function loadDate(inputId) {
+            var selectedDate = localStorage.getItem(inputId);
+            if (selectedDate) {
+                document.getElementById(inputId).value = selectedDate;
+            }
+        }
+
+        document.getElementById('dateForm').addEventListener('submit', function(event) {
+            // Save the selected date for each input
+            saveDate('range-from:entry_date');
+            saveDate('range-to:entry_date');
+        });
+
+        window.addEventListener('load', function() {
+            // Load the selected date for each input
+            loadDate('range-from:entry_date');
+            loadDate('range-to:entry_date');
+        });
+        
+</script>
+{/if}
+</html>

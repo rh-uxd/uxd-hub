@@ -1,0 +1,147 @@
+{layout='layouts/_new-html-wrapper'}
+{exp:channel:entries channel="areas" entry_id="80" dynamic="no" cache="yes" refresh="60"}
+{layout:set name='title' value='{title}'}
+{snp_area_head}
+{/exp:channel:entries}
+<section class="pf-c-page__main-section ux-l-content-wrap pf-m-light pf-l-flex pf-m-align-items-flex-start">
+<div class="pf-l-split pf-u-w-100 pf-m-gutter pf-u-mt-md pf-u-mb-md pf-m-wrap">
+{exp:channel:entries channel="areas" cache="yes" refresh="60" entry_id="80" dynamic="no"}
+{snp_area_resource}
+{/exp:channel:entries}
+</div>
+
+<div class="ux-l-cards__sidepanel">
+{exp:pro_search:form query="{segment_3}" result_page="areas/research/results/" }
+           
+<input id="ux-m-search-toggle" class="pf-u-mb-lg ux-c-search-input__light" type="search" name="keywords" placeholder="Search Research">
+<div class="ux-l-cards__sidepanel__filters">
+<div class="pf-c-content pf-u-mb-md">
+<h3>Portfolio</h3>
+</div>
+  {exp:channel:categories category_group="2" show_empty="no" style="linear"}
+  <div class="pf-c-check">   
+      <input id="{category_id}" class="pf-c-check__input" type="checkbox" name="category[]" value="{category_id}"{if pro_search_category ~ '/\b'.category_id.'\b/'} checked{/if}>
+      <label for="{category_id}" class="pf-c-check__label">{category_name}</label>
+  </div>
+  {/exp:channel:categories}
+<div class="pf-c-content pf-u-mb-md pf-u-mt-md">
+<h3>Research Focus Area</h3>
+</div>
+  {exp:channel:categories category_group="3" show_empty="no" style="linear"}
+  <div class="pf-c-check">
+      <input id="{category_id}" class="pf-c-check__input" type="checkbox" name="category[]" value="{category_id}"{if pro_search_category ~ '/\b'.category_id.'\b/'} checked{/if}>
+     <label for="{category_id}" class="pf-c-check__label">{category_name}</label>
+  </div>
+  {/exp:channel:categories}
+  <div class="pf-c-content pf-u-mb-md pf-u-mt-md">
+<h3>Research Type</h3>
+</div>
+  {exp:channel:categories category_group="4" show_empty="no" style="linear"}
+  <div class="pf-c-check">
+      <input id="{category_id}" class="pf-c-check__input" type="checkbox" name="category[]" value="{category_id}"{if pro_search_category ~ '/\b'.category_id.'\b/'} checked{/if}>
+     <label for="{category_id}" class="pf-c-check__label">{category_name}</label>
+  </div>
+  {/exp:channel:categories}
+  </div>
+  <button class="ux-l-cards__sidepanel__action" type="submit">Filter Entries</button>
+{/exp:pro_search:form}
+</div>
+<div class="ux-l-cards__content">
+<div class="pf-l-split pf-u-justify-content-space-between pf-u-mb-xl">
+	<div class="pf-l-split__item pf-l-flex pf-u-align-items-center">
+    	{if segment_3 == "results"}
+ {exp:pro_search:results
+    query="{segment_4}"
+    orderby="title"
+  	sort="asc"
+    collection="research"
+    }    
+    {if count == 1}
+    <div class="pf-c-content pf-l-split pf-u-align-items-center">
+	<small class="pf-u-mb-0">{absolute_results} Research entries</small>
+    <a class="pf-c-button pf-m-link" href="{path="areas/research"}">Clear Filter</a>
+ </div>
+  {/if}
+  {/exp:pro_search:results}
+        {if:else}
+			 <div class="pf-c-content">
+				<small>{exp:stats channel="Research"}{total_entries}{/exp:stats} Research entries</small> 
+            </div>	
+        {/if}
+{if segment_3 == "results"}
+{if:elseif last_segment !="research"}
+<p>Filter Results for <strong>{segment_3}</strong> <a class="pf-c-button pf-m-link" href="{path="areas/research"}">Clear Filter</a></p>
+{/if}
+    </div>
+    <div class="pf-l-split__item">
+<form id="sort-form" method="get">
+  <select class="pf-c-form-control ux-c-select__light" {if segment_3 == "results"} disabled{/if} name="sort_by" onchange="updateResearchURL(this)">
+    <option value="" disabled selected>Sort By</option>
+    <option value="newest">Newest</option>
+    <option value="oldest">Oldest</option>
+    <option value="az">A-Z</option>
+    <option value="za">Z-A</option>
+  </select>
+</form>
+    </div>
+</div>
+ {if segment_3 == "results"}
+ 
+ {exp:pro_search:results
+  query="{segment_4}"
+  channel="research"
+  orderby="title"
+  sort="asc"
+  paginate="bottom"
+}
+{if count == "1"}<div class="pf-l-gallery pf-m-gutter">{/if}
+  {snp_research_card}
+  {if no_results}
+  <p>{gv_entries_none}</p>
+  {/if}
+  {if count == total_results}</div><!--pf-l-gallery-->{/if}
+  {snp_convention_list_paginate} 
+  {/exp:pro_search:results}
+ {if:elseif segment_3 == "newest"}
+    {exp:channel:entries orderby='publish_year' cache="yes" refresh="60" channel="Research" sort='desc' limit='30' paginate="bottom"} 
+    {if count == "1"}<div class="pf-l-gallery pf-m-gutter">{/if}
+  {snp_research_card}
+  {if no_results}
+  <p>{gv_entries_none}</p>
+  {/if}
+  {if count == total_results}</div><!--pf-l-gallery-->{/if}
+  {snp_convention_list_paginate}                  
+{/exp:channel:entries}
+  {if:elseif segment_3 == "oldest"}
+    {exp:channel:entries orderby='publish_year' cache="yes" refresh="60" channel="Research" sort='asc' limit='30' paginate="bottom"} 
+    {if count == "1"}<div class="pf-l-gallery pf-m-gutter">{/if}
+  {snp_research_card}
+  {if no_results}
+  <p>{gv_entries_none}</p>
+  {/if}
+  {if count == total_results}</div><!--pf-l-gallery-->{/if}
+  {snp_convention_list_paginate}                  
+{/exp:channel:entries}
+    {if:elseif segment_3 == "za"}
+    {exp:channel:entries orderby='title' cache="yes" refresh="60" channel="Research" sort='desc' limit='30' paginate="bottom"} 
+    {if count == "1"}<div class="pf-l-gallery pf-m-gutter">{/if}
+  {snp_research_card}
+  {if no_results}
+  <p>{gv_entries_none}</p>
+  {/if}
+  {if count == total_results}</div><!--pf-l-gallery-->{/if}
+  {snp_convention_list_paginate}                  
+{/exp:channel:entries}
+  {if:else}
+     {exp:channel:entries orderby='title' cache="yes" refresh="60" channel="Research" sort='asc' limit='30' paginate="bottom"} 
+    {if count == "1"}<div class="pf-l-gallery pf-m-gutter">{/if}
+  {snp_research_card}
+  {if no_results}
+  <p>{gv_entries_none}</p>
+  {/if}
+  {if count == total_results}</div><!--pf-l-gallery-->{/if}
+  {snp_convention_list_paginate}                  
+{/exp:channel:entries}
+  {/if}
+</div>  
+</section>

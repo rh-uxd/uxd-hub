@@ -1,0 +1,46 @@
+{layout='layouts/_new-html-wrapper'}
+{layout:set name='title' value='Portfolio'}
+<section class="ux-c-hero__sub ux-c-hero__center ux-c-hero__portfolio">
+<small class="ux-c-hero__center__small">UXD Product Portfolio Support</small>
+	<h1 class="ux-c-hero__center__title">Innovative products, Exceptional services, and unforgetable experiences</h1>
+	<img class="ux-c-hero__center__img" alt="hero image" src="https://matthewcarleton.github.io/uxdhub/assets/images/portfolio.png" />
+</section>
+<section class="pf-c-page__main-section pf-m-light pf-m-fill">
+<div class="pf-c-page__main-body">  
+<div class="pf-l-split pf-u-justify-content-space-between pf-u-mb-md">
+	<div class="pf-l-split__item">
+        {exp:stats channel="areas"}
+ <div class="pf-c-content pf-u-mb-md">
+ {exp:query sql="
+    SELECT COUNT(*) AS entry_count
+    FROM exp_channel_titles
+    WHERE channel_id = 16
+    AND entry_id NOT IN (80, 81, 102, 273, 329)
+"}
+    <small>{entry_count} portfolio spaces</small>
+{/exp:query}	
+ </div>
+{/exp:stats}
+ </div>
+</div> 
+   {exp:channel:entries 
+    channel= "areas" 
+    cache= "yes" 
+    refresh= "60"
+    disable= "categories|category_fields|member_data|relationships|relationship_custom_fields
+|relationship_categories" 
+orderby="title"
+sort="asc"
+	entry_id= "not 102|81|80|273|329"
+	}   
+ 
+  {if count == "1"}<div class="pf-l-gallery pf-m-gutter">{/if}
+  {snp_product_card}
+  {if no_results}
+  <p>{gv_entries_none}</p>
+  {/if}
+  {if count == total_results}</div><!--pf-l-gallery-->{/if}
+  {snp_convention_list_paginate}                  
+{/exp:channel:entries}
+    </div>
+</section>

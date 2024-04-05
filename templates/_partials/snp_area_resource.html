@@ -1,0 +1,11 @@
+{area_resource}
+	{if area_resource:total_rows >= 1}
+		<div class="pf-l-split__item pf-l-split">
+			<div class="ux-c-source--item ux-c-source--item__{area_resource:type:value}" style="margin-right:16px"></div> 
+				<div class="pf-u-min-width pf-l-content pf-u-mb-md" style="--pf-u-min-width--MinWidth: 200px;"> 
+<a href="{area_resource:link}" title="Go to {area_resource:name}"{if area_resource:internal != "internal"} target="blank"{/if} role="link">{area_resource:name}</a><br> 
+			      <small>{area_resource:type:label}</small>
+        	</div>
+		</div><!--pf-l-split__item-->
+	{/if}
+{/area_resource}

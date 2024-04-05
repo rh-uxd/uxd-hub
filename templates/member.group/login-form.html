@@ -1,0 +1,51 @@
+{!--          <div class="pf-l-bullseye"> --}
+  <div class="{!--pf-l-bullseye__item--} pf-u-min-width pf-u-max-width" style="width:fit-content; --pf-u-min-width--MaxWidth: {embed:MaxWidth}; --pf-u-min-width--MinWidth: {embed:MinWidth};">
+      <h3>Log in to see Research content or request an account on <a href="https://redhat-internal.slack.com/archives/C033G6UA8AH" target="blank">Slack</a></h3>
+  {exp:member:login_form form_class="pf-c-form" return="{embed:redirect}"}
+          <div class="pf-c-form__group">
+          <div class="pf-c-form__group-label">
+          	<label class="pf-c-form__label" for="login-demo-form-username">
+            	<span class="pf-c-form__label-text">Username</span>
+                <span class="pf-c-form__label-required" aria-hidden="true">&#42;</span>
+            </label>
+            </div>
+            <div class="pf-c-form__group-control">
+        	<input class="pf-c-form-control" name="username" required input="true" type="text" id="login-demo-form-username" />
+          </div>
+          </div>
+          <div class="pf-c-form__group">
+          <div class="pf-c-form__group-label">
+          	<label class="pf-c-form__label" for="login-demo-form-password">
+            	<span class="pf-c-form__label-text">Password</span>
+            	<span class="pf-c-form__label-required" aria-hidden="true"></span>
+            </label>
+            </div>
+            <div class="pf-c-form__group-control">
+          <input
+            class="pf-c-form-control"
+            required
+            input="true"
+            type="password"
+            id="login-demo-form-password"
+            name="password"
+          />
+          </div>
+        </div>
+         <div class="pf-c-form__group pf-l-flex">
+         <div class="pf-c-form__group-control">
+        <input class="checkbox" type="checkbox" name="auto_login" id="remember-password" value="1"> 
+        </div>
+          <div class="pf-c-form__group-label">
+          	<label class="pf-c-form__label" for="remember-password">
+            <span class="pf-c-form__label-text">Auto-login on future visits</span>
+            	<span class="pf-c-form__label-required" aria-hidden="true"></span>
+            </label>
+            </div>
+             
+        </div>
+        <div class="pf-c-form__group pf-m-action">
+          <input class="pf-c-button pf-m-primary pf-m-block" type="submit" name="submit" value="Submit" />
+        </div>
+        {/exp:member:login_form}
+  </div>
+{!-- </div> --}

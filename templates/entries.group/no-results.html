@@ -1,0 +1,31 @@
+{layout='layouts/_new-html-wrapper'}
+
+{!-- prevents 4th ++ segments on no results searches --}
+{if segment_4}
+	{redirect='{segment_1}/{segment_2}/{segment_3}'}
+{/if}
+
+{!-- page vars --}
+{preload_replace:p_title='conventions'}
+{preload_replace:p_description='Search Results'}
+{preload_replace:p_url='convention'}
+{!-- channel vars (prefix ch_) --}
+{preload_replace:ch='convention'}
+{!-- layout vars, channel/page related --}
+{layout:set name='ch' value='{ch}'}
+{layout:set name='p_url' value='{p_url}'}
+{layout:set name='p_title' value='{p_title}'}
+{layout:set name='search' value='y'}
+{!-- layout vars --}
+{layout:set name='title' value='search results{gv_sep}{p_title}{gv_sep}'}
+{layout:set name='description' value='{p_description}'}
+		<section class="pf-c-page__main-section pf-m-light">
+		<div class="pf-l-split">
+              <div class="pf-l-split__item pf-m-fill">
+                <div class="pf-c-content">
+                  <h1>Sorry, no results found matching "<b>{exp:search:keywords}</b>".</h1>
+                </div>
+              </div>
+			  </div>
+        </section>
+		

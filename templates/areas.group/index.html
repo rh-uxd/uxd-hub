@@ -1,0 +1,50 @@
+{layout='layouts/_new-html-wrapper'}
+{exp:channel:entries channel="areas" cache="yes" refresh="60"}
+{layout:set name='title' value='{title}'}
+{snp_area_head}
+{/exp:channel:entries}
+<!-- this for the single product pages-->
+<section class="pf-c-page__main-section ux-l-content-wrap pf-m-light pf-l-flex pf-m-align-content-flex-start">
+<div class="pf-l-split pf-u-w-100 pf-m-gutter pf-u-mt-md pf-u-mb-md pf-m-wrap">
+{exp:channel:entries channel="areas" cache="yes" refresh="60"}
+{snp_area_resource}
+{/exp:channel:entries}
+</div>
+ <div class="ux-c-tabs pf-u-mb-md ux-c-sub-nav">
+    <button class="ux-c-tab__link pf-c-button ux-c-button" onclick="changeTab(event, 'tab2')">Design</button>
+    <button class="ux-c-tab__link pf-c-button ux-c-button" onclick="changeTab(event, 'tab3')">Research</button>
+    <button class="ux-c-tab__link pf-c-button ux-c-button" onclick="changeTab(event, 'tab4')">Content</button>
+{!--     <button class="ux-c-tab__link pf-c-button ux-c-button" onclick="changeTab(event, 'tab1')">Team</button> --}
+  </div>
+{!--   <div id="tab1" class="ux-c-tab pf-u-w-100">
+   {exp:channel:entries cache="yes" refresh="60" orderby='title' channel="areas" sort='asc'} 
+    {if related_members}
+	{snp_related_members}<!-- re use member list --> 
+{/if}               
+  {/exp:channel:entries}
+  </div> --}
+  
+  <div id="tab2" class="ux-c-tab pf-u-w-100">
+
+   {exp:channel:entries cache="yes" refresh="60" category_title_url="{last_segment}" orderby='title' channel="Entry" sort='asc'} 
+    {embed_design_list}                 
+  {/exp:channel:entries}
+  </div>
+  
+  <div id="tab3" class="ux-c-tab pf-u-w-100">
+{exp:channel:entries cache="yes" refresh="60" category_title_url="{last_segment}" orderby='title' channel="research" sort='asc'} 
+    {embed_research_list}                 
+  {/exp:channel:entries}
+  </div>
+  
+  <div id="tab4" class="ux-c-tab pf-u-w-100">
+<div class="pf-l-stack pf-m-gutter">
+{exp:channel:entries cache="yes" refresh="60" category_title_url="{last_segment}" orderby='title' channel="content" sort='asc'} 
+    {snp_content_card} 
+    {if no_results}
+    <p>{gv_entries_none}</p>
+    {/if}
+  {/exp:channel:entries}
+</div>
+  </div>	
+</section>
