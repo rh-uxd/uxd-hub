@@ -1,141 +1,55 @@
 {layout='layouts/_new-html-wrapper'}
 {exp:channel:entries channel="areas" entry_id="329" dynamic="no" cache="yes" refresh="60"}
 {layout:set name='title' value='{title}'}
-{snp_area_head}
-
+<section class="ux-c-area-head--wrap__methods pf-u-p-xl pf-u-pt-4xl">
+<div class="ux-c-area-head__methods pf-u-text-align-center">
+<h1 class="ux-c-area-head__methods__title">{title}</h1>
+{pv_methods_svg}
+  <h2 class="ux-c-area-head__methods__desc" >
+  {exp:word_limit total='200' strip_tags='yes'}
+   {description}
+{/exp:word_limit}  
+</h2>
+<ul class="pf-u-mt-2xl pf-l-flex pf-m-justify-content-center pf-m-align-items-center pf-m-space-items-2xl ">
+<li><a class="pf-l-flex pf-m-align-items-center" href="https://redhat.enterprise.slack.com/archives/C033G6UA8AH" target="blank">
+{pv_slack_svg_icon}
+Join the Conversation</a></li>
+<li><a href="{path=entries/method/where-to-start}">Get Started with Methods</a></li>
+</ul>
+<nav 
+class="ux-c-methods-stages pf-l-flex pf-m-justify-content-center">
+<ol 
+class="ux-c-methods-stages__list pf-l-flex pf-m-justify-content-center">
+<li class="ux-c-methods-stages__item {if last_segment =="discovery"}ux-m-active{/if}"><a class="ux-c-methods-stages__link" href="{path="areas/methods/discovery"}">Discovery</a></li>
+<li class="ux-c-methods-stages__item {if last_segment =="ideation-design"}ux-m-active{/if}"><a class="ux-c-methods-stages__link" href="{path="areas/methods/ideation-design"}">Ideation &amp; Design</a></li>
+<li class="ux-c-methods-stages__item {if last_segment =="testing"}ux-m-active{/if}"><a class="ux-c-methods-stages__link" href="{path="areas/methods/testing"}">Testing</a></li>
+<li class="ux-c-methods-stages__item {if last_segment =="methods-new"}ux-m-active{/if}"><a class="ux-c-methods-stages__link" href="{path="areas/methods"}">All stages</a></li>
+</ol>
+</nav>
+</div>
+</section>
 {/exp:channel:entries}
+
+
 <section class="pf-c-page__main-section ux-l-content-wrap pf-m-light pf-l-flex pf-m-align-items-flex-start pf-m-align-content-flex-start">
-<div class="pf-l-split pf-u-w-100 pf-m-gutter pf-u-mt-md pf-u-mb-md pf-m-wrap">
-{exp:channel:entries channel="Areas" cache="yes" refresh="60" entry_id="329" dynamic="no"}
-{snp_area_resource}
-{/exp:channel:entries}
-</div>
-<div class="ux-l-cards__sidepanel">
-{exp:pro_search:form query="{segment_3}" result_page="areas/methods/results/" }
-
-           
-<input id="ux-m-search-toggle" class="pf-u-mb-lg ux-c-search-input__light" type="search" name="keywords" placeholder="Search methods">
-
-<div class="pf-c-content pf-u-mb-md">
-<h3>Method areas</h3>
-</div>
-  {exp:channel:categories category_group="6" show_empty="no" style="linear"}
-  <div class="pf-c-check">   
-      <input id="{category_id}" class="pf-c-check__input" type="checkbox" name="category[]" value="{category_id}"{if pro_search_category ~ '/\b'.category_id.'\b/'} checked{/if}>
-      <label for="{category_id}" class="pf-c-check__label">{category_name}</label>
-  </div>
-  {/exp:channel:categories}
-{!-- <div class="pf-c-content pf-u-mb-md pf-u-mt-md">
-<h3>Tags</h3>
-</div>
-  {exp:channel:categories category_group="1" show_empty="no" style="linear"}
-  <div class="pf-c-check">
-      <input id="{category_id}" class="pf-c-check__input" type="checkbox" name="category[]" value="{category_id}"{if pro_search_category ~ '/\b'.category_id.'\b/'} checked{/if}>
-     <label for="{category_id}" class="pf-c-check__label">{category_name}</label>
-  </div>
-  {/exp:channel:categories} --}
-  <button class="ux-l-cards__sidepanel__action" type="submit">Go</button>
-{/exp:pro_search:form}
-</div>
 <div class="ux-l-cards__content">
-<div class="pf-l-split pf-u-justify-content-space-between pf-u-mb-md">
-	<div class="pf-l-split__item">
-    	{if segment_3 == "results"}
- {exp:pro_search:results
-    query="{segment_4}"
-    orderby="title"
-  	sort="asc"
-    collection="methods"
-    }    
-    {if count == 1}
-    <div class="pf-c-content pf-u-mb-md pf-l-split pf-u-align-items-center">
-	<small class="pf-u-mb-0">{absolute_results} Method entries</small>
-    <a class="pf-c-button pf-m-link" href="{path="areas/methods"}">Clear Filter</a>
- </div>
-  {/if}
-  {/exp:pro_search:results}
-  {if:else}
-			 <div class="pf-c-content pf-u-mb-md">
-				<small>{exp:stats channel="methods"}{total_entries}{/exp:stats} Methods entries</small> 
-            </div>	
- {/if}
-{if segment_3 == "results"}
-{!-- <a class="pf-c-button pf-m-link" href="{path="areas/new-design"}">Clear Filter</a>	 --}
-{if:elseif last_segment !="methods"}
-<p>Filter Results for <strong>{last_segment}</strong> <a class="pf-c-button pf-m-link" href="{path="areas/methods"}">Clear Filter</a></p>
+{if last_segment == "discovery"}
+	{embed="embeds/method-embed" cat="129"}
+{if:elseif last_segment == "ideation-design"}
+	{embed="embeds/method-embed" cat="130"}
+{if:elseif last_segment == "testing"}
+	{embed="embeds/method-embed" cat="131"}
+{if:else}
+	{embed="embeds/method-embed"}
 {/if}
-    </div>
-    <div class="pf-l-split__item">
-<form id="sort-form" method="get">
-  <select class="pf-c-form-control ux-c-select__light" {if segment_3 == "results"} disabled{/if} name="sort_by" onchange="updateURL(this)">
-    <option value="" disabled selected>Sort By</option>
-    <option value="newest">Newest</option>
-    <option value="oldest">Oldest</option>
-    <option value="az">A-Z</option>
-    <option value="za">Z-A</option>
-  </select>
-</form>
-    </div>
-</div>
- {if segment_3 == "results"}
- 
- {exp:pro_search:results
-  query="{segment_4}"
-  channel="methods"
-  orderby="title"
-  sort="asc"
-  paginate="bottom"
-}
-{if count == "1"}<div class="pf-l-gallery pf-m-gutter">{/if}
-  {snp_methods_card}
-  {if no_results}
-  <p>{gv_entries_none}</p>
-  {/if}
-  {if count == total_results}</div><!--pf-l-gallery-->{/if}
-  {snp_convention_list_paginate} 
-  {/exp:pro_search:results}
- {if:elseif segment_3 == "newest"}
-    {exp:channel:entries orderby='date' cache="yes" refresh="60" channel="methods" sort='desc' limit='30' paginate="bottom"} 
-    {if count == "1"}<div class="pf-l-gallery pf-m-gutter">{/if}
-  {snp_methods_card}
-  {if no_results}
-  <p>{gv_entries_none}</p>
-  {/if}
-  {if count == total_results}</div><!--pf-l-gallery-->{/if}
-  {snp_convention_list_paginate}                  
-{/exp:channel:entries}
-  {if:elseif segment_3 == "oldest"}
-    {exp:channel:entries orderby='date' cache="yes" refresh="60" channel="methods" sort='asc' limit='30' paginate="bottom"} 
-    {if count == "1"}<div class="pf-l-gallery pf-m-gutter">{/if}
-  {snp_methods_card}
-  {if no_results}
-  <p>{gv_entries_none}</p>
-  {/if}
-  {if count == total_results}</div><!--pf-l-gallery-->{/if}
-  {snp_convention_list_paginate}                  
-{/exp:channel:entries}
-    {if:elseif segment_3 == "za"}
-    {exp:channel:entries orderby='title' cache="yes" refresh="60" channel="methods" sort='desc' limit='30' paginate="bottom"} 
-    {if count == "1"}<div class="pf-l-gallery pf-m-gutter">{/if}
-  {snp_methods_card}
-  {if no_results}
-  <p>{gv_entries_none}</p>
-  {/if}
-  {if count == total_results}</div><!--pf-l-gallery-->{/if}
-  {snp_convention_list_paginate}                  
-{/exp:channel:entries}
-  {if:else}
-     {exp:channel:entries orderby='title' cache="yes" refresh="60" channel="methods" sort='asc' limit='30' paginate="bottom"} 
-    {if count == "1"}<div class="pf-l-gallery pf-m-gutter">{/if}
-  {snp_methods_card}
-  {if no_results}
-  <p>{gv_entries_none}</p>
-  {/if}
-  {if count == total_results}</div><!--pf-l-gallery-->{/if}
-  {snp_convention_list_paginate}                  
-{/exp:channel:entries}
-  {/if}
 </div>  
 </section>
-{!-- </section>
- --}
+<section class="ux-c-methods-process-cta pf-c-page__main-section pf-c-content pf-l-flex pf-m-align-items-center">
+<img class="ux-c-methods-process-cta__img" alt="methods process" src="https://matthewcarleton.github.io/uxdhub/assets/images/methods-process-cta.png"/>
+<div class="ux-c-methods-process-cta__content">
+<span class="pf-c-label pf-m-outline"><span class="pf-c-label__content">Process outline</span></span>
+<h1>{pv_method_process_cta_heading}</h1>
+<p>{pv_method_process_cta_content}</p>
+<a href="{path=entries/method/where-to-start}" class="pf-c-button pf-m-primary" type="button">Get Started with Methods</a>
+</div>
+</section>

@@ -75,11 +75,11 @@
         <div class="pf-c-content">
         	<h2 class="pf-u-mb-xl">Research entries</h2>
         </div>
-    {if logged_out}
+{!--     {if logged_out}
     {embed="member/login-form" redirect="areas/research" MaxWidth="300px" MinWidth="300px"}
-    {/if}
+    {/if} --}
     <div class="pf-l-gallery pf-m-gutter">         
-    {if logged_in}
+{!--     {if logged_in} --}
               {exp:pro_search:results
     query="{segment_2}" 
     channel="research"
@@ -95,6 +95,29 @@
     </div>
     {/if}
   {/exp:pro_search:results}
-{/if}
+{!-- {/if} --}
           </div>
         </section>
+  <section class="pf-c-page__main-section pf-m-light">
+        <div class="pf-c-content">
+        	<h2 class="pf-u-mb-xl">Method entries</h2>
+        </div>
+
+    <div class="pf-l-gallery pf-m-gutter">         
+              {exp:pro_search:results
+    query="{segment_2}" 
+    channel="methods"
+    collection="methods"
+    keywords:inflect="yes"
+    keywords:loose="right"
+    keywords:mode="all"
+    }    
+		{snp_methods_card}
+        {if pro_search_no_results}
+   <div class="pf-c-content">
+   <h3>No results for “{pro_search_keywords}" in Methods.</h3>
+    </div>
+    {/if}
+  {/exp:pro_search:results}
+  </div>
+  </section>

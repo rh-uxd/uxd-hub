@@ -49,7 +49,7 @@
     {if count == 1}
     <div class="pf-c-content pf-u-mb-md pf-l-split pf-u-align-items-center">
 	<p class="pf-u-mb-0">{total_results} results for
-    {exp:channel:categories show="{pro_search_category}" style="linear" backspace="2"}<strong>{category_url_title}</strong>, {/exp:channel:categories}</p>
+    {exp:channel:categories show="{pro_search_category}" style="linear" backspace="2"}<strong>{category_url_title}</strong>, {/exp:channel:categories} <strong>{pro_search_keywords}</strong></p>
 
  <a class="pf-c-button pf-m-link" href="{path="areas/design"}">Clear Filter</a>
  </div>
@@ -83,7 +83,6 @@
     </div>
 </div>
  {if segment_3 == "results"}
- 
  {exp:pro_search:results
   query="{segment_4}"
   channel="Entry"
@@ -91,64 +90,27 @@
   sort="asc"
   paginate="bottom"
 }
-{if count == "1"}<div class="pf-l-gallery pf-m-gutter">{/if}
-  {snp_design_card}
-  {if no_results}
-  <p>{gv_entries_none}</p>
-  {/if}
-  {if count == total_results}</div><!--pf-l-gallery-->{/if}
-  {snp_convention_list_paginate} 
+  {embed_design_list}
   {/exp:pro_search:results}
  {if:elseif segment_3 == "newest"}
     {exp:channel:entries orderby='date' cache="yes" refresh="60" channel="Entry" sort='desc' limit='30' paginate="bottom"} 
-    {if count == "1"}<div class="pf-l-gallery pf-m-gutter">{/if}
-  {snp_design_card}
-  {if no_results}
-  <p>{gv_entries_none}</p>
-  {/if}
-  {if count == total_results}</div><!--pf-l-gallery-->{/if}
-  {snp_convention_list_paginate}                  
+  {embed_design_list}
 {/exp:channel:entries}
   {if:elseif segment_3 == "oldest"}
     {exp:channel:entries orderby='date' cache="yes" refresh="60" channel="Entry" sort='asc' limit='30' paginate="bottom"} 
-    {if count == "1"}<div class="pf-l-gallery pf-m-gutter">{/if}
-  {snp_design_card}
-  {if no_results}
-  <p>{gv_entries_none}</p>
-  {/if}
-  {if count == total_results}</div><!--pf-l-gallery-->{/if}
-  {snp_convention_list_paginate}                  
+  {embed_design_list}
 {/exp:channel:entries}
     {if:elseif segment_3 == "za"}
     {exp:channel:entries orderby='title' cache="yes" refresh="60" channel="Entry" sort='desc' limit='30' paginate="bottom"} 
-    {if count == "1"}<div class="pf-l-gallery pf-m-gutter">{/if}
-  {snp_design_card}
-  {if no_results}
-  <p>{gv_entries_none}</p>
-  {/if}
-  {if count == total_results}</div><!--pf-l-gallery-->{/if}
-  {snp_convention_list_paginate}                  
+  {embed_design_list}
 {/exp:channel:entries}
 {if:elseif segment_3 == "az"}
     {exp:channel:entries orderby='title' cache="yes" refresh="60" channel="Entry" sort='asc' limit='30' paginate="bottom"} 
-    {if count == "1"}<div class="pf-l-gallery pf-m-gutter">{/if}
-  {snp_design_card}
-  {if no_results}
-  <p>{gv_entries_none}</p>
-  {/if}
-  {if count == total_results}</div><!--pf-l-gallery-->{/if}
-  {snp_convention_list_paginate}                  
+  {embed_design_list}
 {/exp:channel:entries}
   {if:else}
      {exp:channel:entries orderby='title' cache="yes" refresh="60" channel="Entry" sort='asc' limit='30' paginate="bottom"} 
-
-    {if count == "1"}<div class="pf-l-gallery pf-m-gutter"> {/if}
-  {snp_design_card}
-  {if no_results}
-  <p>{gv_entries_none}</p>
-  {/if}
-  {if count == total_results}</div><!--pf-l-gallery-->{/if}
-  {snp_convention_list_paginate}                  
+  {embed_design_list}
 {/exp:channel:entries}
   {/if}
 </div>  

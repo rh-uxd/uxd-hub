@@ -1,7 +1,7 @@
 {if count == "1"}<div class="pf-l-gallery pf-m-gutter">{/if}
-  {snp_research_card}
-  {if no_results}
-  	<p>{gv_entries_none}</p>
-  {/if}
-  {if count == total_results}</div><!--pf-l-gallery-->{/if}
-  {snp_convention_list_paginate}
+{snp_research_card} 
+{if no_results}
+{gv_entries_none}
+{/if} 
+{if count == total_results}</div><!--pf-l-gallery-->{/if}   
+{snp_convention_list_paginate}

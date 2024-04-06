@@ -2,12 +2,12 @@
 <div class="ux-c-area-head pf-c-content">
 {if last_segment =="operators"}
 <svg class="pf-u-mb-sm ux-c-area-head__icon" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 38 38"><defs><style>.a{fill:#fff;}.b{fill:#e00;}</style></defs><path d="M28,1H10a9,9,0,0,0-9,9V28a9,9,0,0,0,9,9H28a9,9,0,0,0,9-9V10a9,9,0,0,0-9-9Z"/><path class="a" d="M10.09863,22.18994a.625.625,0,0,1-.25488-1.1958l2.74072-1.22021a.62492.62492,0,1,1,.50879,1.1416l-2.74072,1.22021A.619.619,0,0,1,10.09863,22.18994Z"/><path class="a" d="M8.832,25.49072a.625.625,0,0,1-.25488-1.1958l2.74023-1.22021a.62492.62492,0,1,1,.50879,1.1416L9.08594,25.43652A.61731.61731,0,0,1,8.832,25.49072Z"/><path class="a" d="M26.42773,14.91943a.62473.62473,0,0,1-.2539-1.1958L28.915,12.50342a.62472.62472,0,1,1,.50781,1.1416l-2.74121,1.22021A.61563.61563,0,0,1,26.42773,14.91943Z"/><path class="a" d="M25.16113,18.22021a.62473.62473,0,0,1-.2539-1.1958l2.74023-1.22021a.62472.62472,0,1,1,.50781,1.1416L25.415,18.166A.61581.61581,0,0,1,25.16113,18.22021Z"/><path class="b" d="M18.95166,28.63379A9.593,9.593,0,0,1,12.8291,26.4165a.625.625,0,0,1,.7959-.96386,8.37943,8.37943,0,0,0,13.71289-6.1045.61006.61006,0,0,1,.65039-.59814.6249.6249,0,0,1,.59766.65088,9.65521,9.65521,0,0,1-9.63428,9.23291Z"/><path class="b" d="M9.97461,19.22607l-.02881-.00048a.62539.62539,0,0,1-.59619-.65284A9.6291,9.6291,0,0,1,25.10547,11.5835a.62531.62531,0,0,1-.79688.96386,8.37815,8.37815,0,0,0-13.71,6.082A.62532.62532,0,0,1,9.97461,19.22607Z"/></svg>             
-  {if:elseif svg_icon ==""}
+{if:elseif svg_icon ==""}
             	 <svg class="pf-u-mb-sm ux-c-area-head__icon" width="80px" xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 29.35 29.64"><defs><style>.cls-300{stroke-width:2.54px;fill:none;stroke:#2f3133;stroke-linecap:round;stroke-linejoin:round}</style></defs><g id="_-Symbols" data-name="♠️-Symbols"><g id="App-Header-_-Selected-_-Search" data-name="App-Header-/-Selected-/-Search"><g id="app-store"><path id="Rectangle" d="M1.27 3.02H11.41V13.16H1.27z" class="cls-300"/><path id="Rectangle-2" d="M15.4 7.61 21.74 1.27 28.08 7.61 21.74 13.94 15.4 7.61z" data-name="Rectangle" style="stroke-width:2.54px;fill:none;stroke:#2f3133;stroke-linecap:round;stroke-linejoin:round"/><path id="Rectangle-3" d="M16.48 18.23H26.62V28.37H16.48z" class="cls-300" data-name="Rectangle"/><path id="Rectangle-4" d="M1.27 18.23H11.41V28.37H1.27z" class="cls-300" data-name="Rectangle"/></g></g></g></svg>
                 {if:else}
             {svg_icon}
         {/if}
-<h1 class="ux-c-area-head__title">{title}</h1>
+<h1 class="ux-c-area-head__title">{title}{if segment_2 == "design-drafts"} Drafts{/if}</h1>
   <p class="ux-c-area-head__desc">
   {exp:word_limit total='100' strip_tags='yes'}
    {description}

@@ -9,7 +9,7 @@
 {layout:set name='p_url' value='{p_url}'}
 {layout:set name='p_title' value='{p_title}'}
 
-{exp:channel:entries disable="{ch_disable}" channel="{ch}" limit='1' track_views="one"}
+{exp:channel:entries disable="{ch_disable}" channel="{ch}" status="draft|open" limit='1' track_views="one"}
 
 {layout:set name='title' value='{segment_3}'}
 {layout:set name='entry_ch' value='{ch}'}
@@ -26,8 +26,12 @@
             <button class="pf-c-button pf-m-plain drawer-toggle-button" id="toggle">
             <svg width="20px" xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 49.9 36.49"><defs><style>.cls-1001{fill:none;stroke:#4f575e;stroke-linecap:round;stroke-miterlimit:10;stroke-width:5px}</style></defs><path d="M2.5 17.31 32.88 17.31M18.98 3.33 32.78 17.13M18.98 31.13 32.78 17.33M47.4 33.99 47.4 2.5" class="cls-1001"></path></svg>
               </button>
-            <div class="ux-c-entry__toc">         
+            <div class="ux-c-entry__toc">   
+            {if status == "Draft"}
+              <a class="pf-c-button pf-m-link" href="{path="areas/method-drafts"}">Back to Method drafts page</a>
+              {if:else}
               <a class="pf-c-button pf-m-link" href="{path="areas/methods"}">Back to Methods page</a>
+              {/if}
                 <div class="ux-c-toc" id="toc">
                 	<header class="ux-c-toc__header">
                     <h2 class="pf-c-title pf-m-xl">Table of Contents</h2>
@@ -45,11 +49,24 @@
                 </div>
             </div>
             <article class="pf-m-light pf-m-fill pf-c-content ux-c-entry__content" >
-              	
+              	{if status == "Draft"}
+                <div
+  class="pf-c-alert pf-m-info pf-m-inline"
+  aria-label="Inline information alert"
+>
+  <div class="pf-c-alert__icon">
+    <i class="fas fa-fw fa-info-circle" aria-hidden="true"></i>
+  </div>
+  <p class="pf-c-alert__title">
+    <span class="pf-screen-reader">Status Draft:</span>
+    <strong>Draft:</strong> This entry has not been published. 
+  </p>
+</div>
+                {/if}
                     <h1>{title}</h1>
                   	{content_section}
              			<h2 id="{last_segment}_heading_{content_section:row_id}">{content_section:heading}</h2> 
-	{content_section:product_usage status="open"}
+{!-- 	{content_section:product_usage status="open"}
 		{if content_section:product_usage:count == 1}
 		<div class="pf-c-label-group pf-m-category">
 		  <div class="pf-c-label-group__main">
@@ -66,11 +83,21 @@
 		  </div><!--pf-c-label-group__main-->
 		</div><!--pf-c-label-group-->
         {/if}
-		{/content_section:product_usage}
+		{/content_section:product_usage} --}
 		{content_section:content}
 		<hr class="pf-c-divider pf-u-mt-lg">
 		{/content_section}
-        	</article>
         {/exp:channel:entries}
-        {snp_entry-info_side}
+        <section class="ux-c-methods-process-cta pf-c-page__main-section pf-c-content pf-l-flex pf-m-align-items-center">
+<img style="max-width:150px;" class="ux-c-methods-process-cta__img" alt="methods process" src="https://matthewcarleton.github.io/uxdhub/assets/images/methods-process-cta.png"/>
+<div class="ux-c-methods-process-cta__content">
+<h1>{pv_method_feedback_cta_heading}</h1>
+<p>{pv_method_feedback_cta_content}</p>
+<p>Drop us a message on the <a href="https://redhat-internal.slack.com/archives/C05GZV5N23S" taget="_blank">#uxd-hub</a> Slack channel</p>
+<a href="https://issues.redhat.com/secure/CreateIssue.jspa?pid=12338928" target="blank" class="pf-c-button pf-m-primary" type="button">Submit Feedback</a>
+</div>
+</section>
+        	</article>
+         
+        {snp_entry-info_side_methods}
         </div>

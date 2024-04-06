@@ -1,23 +1,12 @@
-<div class="pf-c-card ux-c-card">
-<div class="pf-c-card__header">
-    <h4 class="pf-u-font-size-sm">
-    {categories show_group="6" style="linear" backspace="2"}<a href="{path='areas/methods'} ">{category_name}, {/categories}</a>
+<div class="pf-c-card ux-c-card ux-c-card-method" style="background-image:url('{method_card_img}')">
+<a class="ux-c-card-method__wrap" href="{title_permalink='entries/method'}" role="link">
+  <div class="ux-c-card-method__body">
+    <h3 class="pf-u-font-size-xl pf-u-font-weight-bold">{title}</h3>
+    <h4 class="pf-u-font-size-sm pf-u-font-weight-bold">
+    {categories show_group="6" style="linear" backspace="2"}{category_name}, {/categories}
   	</h4>
+    <span class="ux-c-card-method__sep"></span>
+    <p class="ux-c-card-method__desc">{method_card_description}</p>
   </div>
-  <div class="pf-c-card__body pf-c-content">
-    <h3>{title}</h3>
-  </div>
-  <div class="pf-c-card__footer">
-  <div class="pf-l-level">
-  <div class="pf-l-level__item">
-  </div>
-  <div class="pf-l-level__item">
-  <a class="pf-c-button pf-m-link pf-m-inline pf-m-display-lg" href="{title_permalink='entries/method'}" role="link">
-	<span class="pf-c-button__icon pf-m-end"> 
-    <i class="fas fa-arrow-right" aria-hidden="true"></i>
-  </span>
-  </a>
-  </div>
-</div>
-</div>
+</a>
 </div>

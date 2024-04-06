@@ -1,0 +1,14 @@
+{exp:channel:entries 
+orderby='title' 
+entry_id="not 354" 
+cache="yes" 
+refresh="60" 
+channel="methods" 
+sort='asc' 
+limit='30'
+category="{embed:cat}"
+}
+{if count == "1"}<div class="pf-l-gallery pf-m-gutter" style="--pf-l-gallery--GridTemplateColumns--min: 350px;">{/if}
+  {snp_methods_card}
+  {if count == total_results}</div><!--pf-l-gallery-->{/if}               
+{/exp:channel:entries}

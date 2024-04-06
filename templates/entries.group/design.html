@@ -49,7 +49,13 @@
                     <nav class="pf-m-vertical">
                     	<ul class="ux-c-toc__list">
                           {content_section}
-                          <li class="ux-c-toc__listItem"><a class="ux-c-toc__link{if {last_segment} =='{title}#{title}_heading_{content_section:row_id}'}pf-m-current{/if}" href="#{last_segment}_heading_{content_section:row_id}">{content_section:heading}</a></li>          
+                         {if content_section:heading} <li class="ux-c-toc__listItem"><a class="ux-c-toc__link{if {last_segment} =='{title}#{title}_heading_{content_section:row_id}'}pf-m-current{/if}" href="#{last_segment}_heading_{content_section:row_id}">{content_section:heading}</a>
+                          </li>
+                          {/if}
+                          {if content_section:sub_heading}<li class="ux-c-toc__listItem ux-c-toc__listItem__sub">
+                          		<a class="ux-c-toc__link{if {last_segment} =='{title}#{title}_heading_{content_section:row_id}'}pf-m-current{/if}" href="#{last_segment}_heading_{content_section:row_id}">{content_section:sub_heading}</a>
+                            </li>
+                            {/if}
                         {/content_section}
                       </ul>
               		</nav>
@@ -63,8 +69,12 @@
 <small>Product area: {categories show_group="2" style="linear" backspace="2"}<a href="{path='areas/design/'}">{category_name}</a>, {/categories}</small>
 {/if}
                   	{content_section}
-             			<h2 id="{last_segment}_heading_{content_section:row_id}">{content_section:heading}</h2> 
-
+             			{if content_section:heading}
+						<h2 id="{last_segment}_heading_{content_section:row_id}">{content_section:heading}</h2>
+                        {/if}
+                        {if content_section:sub_heading}
+						<h3 id="{last_segment}_heading_{content_section:row_id}">{content_section:sub_heading}</h3> 
+						{/if}
 			 
 			 
 		{content_section:product_usage status="open"}
