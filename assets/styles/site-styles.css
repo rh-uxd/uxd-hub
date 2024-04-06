@@ -47,7 +47,7 @@
     }
     
     select.pf-c-form-control{
-    background-image:url(/uxdhub/assets/images/arrow.svg) ;
+    background-image:url(/uxd-hub/assets/images/arrow.svg) ;
     cursor: pointer;
      --pf-c-form-control--BorderBottomColor: var(--pf-global--BorderColor--300);
     }
@@ -178,7 +178,7 @@
     /** HOMEPAGE **/
     
     .ux-c-hero__home {
-        background:#000 url(/uxdhub/assets/images/home-bg-lg.jpg) no-repeat center bottom;
+        background:#000 url(/uxd-hub/assets/images/home-bg-lg.jpg) no-repeat center bottom;
         min-height: 100vh;
         padding: var(--pf-global--spacer--lg);
         background-size: contain;
@@ -231,7 +231,7 @@
     }
     
     .ux-c-card.ux-c-card__dark {
-        background: #000 url(/uxdhub/assets/images/card-home-bg.png) no-repeat;
+        background: #000 url(/uxd-hub/assets/images/card-home-bg.png) no-repeat;
         max-width: 235px;
     }
     
@@ -316,64 +316,64 @@
     
     .ux-c-source--item__Sketch {
         background-color: #FEEEB7;
-        background-image: url(/uxdhub/assets/images/sketch.svg);
+        background-image: url(/uxd-hub/assets/images/sketch.svg);
     }
     
     .ux-c-source--item__Slack {
         background-color: #d9ebf9;
-        background-image: url(/uxdhub/assets/images/slack.svg);
+        background-image: url(/uxd-hub/assets/images/slack.svg);
     }
     
     .ux-c-source--item__Figma{
         background-color: var(--pf-global--BackgroundColor--dark-200);
-        background-image: url(/uxdhub/assets/images/figma.svg);
+        background-image: url(/uxd-hub/assets/images/figma.svg);
     }
     
     .ux-c-source--item__GoogleDoc {
         background-color: #D7EAFF;
-        background-image: url(/uxdhub/assets/images/google-docs.svg);
+        background-image: url(/uxd-hub/assets/images/google-docs.svg);
     }
     
     .ux-c-source--item__Marvel {
         background-color: #1991EB;
-        background-image: url(/uxdhub/assets/images/marvel.svg);
+        background-image: url(/uxd-hub/assets/images/marvel.svg);
     }
     
     .ux-c-source--item__GitHub {
         background-color: #672D93;
-        background-image: url(/uxdhub/assets/images/github.svg);	
+        background-image: url(/uxd-hub/assets/images/github.svg);	
     }
     
     .ux-c-source--item__Jira {
         background-color: #172B4D;
-        background-image: url(/uxdhub/assets/images/jira.svg);
+        background-image: url(/uxd-hub/assets/images/jira.svg);
     }
     .ux-c-source--item__PatternFly {
         background-color: #122e48;
-        background-image: url(/uxdhub/assets/images/PatternFly.svg);
+        background-image: url(/uxd-hub/assets/images/PatternFly.svg);
     }
     
     .ux-c-source--item__RH-Content {
         background-color: #122e48;
-        background-image: url(/uxdhub/assets/images/RH-Content.svg);
+        background-image: url(/uxd-hub/assets/images/RH-Content.svg);
     }
     
     .ux-c-source--item__Storybook {
         background-color: #FFDCEA;
-        background-image: url(/uxdhub/assets/images/storyBook.svg);
+        background-image: url(/uxd-hub/assets/images/storyBook.svg);
     }
     .ux-c-source--item__CaseStudy {
         background-color: #F2F9F9;
-        background-image: url(/uxdhub/assets/images/research.svg);
+        background-image: url(/uxd-hub/assets/images/research.svg);
     }
     
     .ux-c-source--item__Other {
         background-color: #40199A;
-        background-image: url(/uxdhub/assets/images/other.svg);
+        background-image: url(/uxd-hub/assets/images/other.svg);
     }
     .ux-c-source--item__Youtube {
         background-color: #FCD2D2;
-        background-image: url(/uxdhub/assets/images/youtube.svg);
+        background-image: url(/uxd-hub/assets/images/youtube.svg);
     }
     
     .pf-c-button-fx-primary {
