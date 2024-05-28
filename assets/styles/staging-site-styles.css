@@ -227,12 +227,13 @@
         margin: 64px auto;
         max-width: 1000px;
         width: 100%;
-        justify-content: space-around;
+        justify-content: space-between;
     }
     
     .ux-c-card.ux-c-card__dark {
         background: #000 url(/uxd-hub/assets/images/card-home-bg.png) no-repeat;
-        max-width: 235px;
+        flex-grow: 1;
+        flex-basis: 0;
     }
     
     .ux-c-card__dark__icon {
