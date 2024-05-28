@@ -236,6 +236,11 @@
         flex-basis: 0;
         min-height: 285px;
     }
+
+    .ux-c-card.ux-c-card__dark:nth-of-type(odd) {
+        background-position: bottom;
+    }
+
     
     .ux-c-card__dark__icon {
         margin: 64px auto 32px;
