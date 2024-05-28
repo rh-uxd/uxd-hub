@@ -209,14 +209,14 @@
     }
     
     .ux-c-hero__home__content__title__lg {
-        font-size: 6vw;
+        font-size: 5vw;
         line-height: 1;
         font-weight: bold;
     }
     
     .ux-c-hero__home__content__title__sm {
         line-height:2.5;
-        font-size: 1vw;
+        font-size: 1.3vw;
         font-weight: lighter;
     }
     
