@@ -340,7 +340,8 @@
     .ux-c-site-masthead__search {
         display: flex;
         margin-block-start: 64px;
-        min-width: 50vw;
+        max-width: 50vw;
+        min-width: 300px;
         justify-content: center;
     }
     .ux-c-site-masthead__search__input, .ux-c-site-masthead__search__button {
@@ -361,6 +362,7 @@
         font-weight: 800;
         text-transform: capitalize;
         width: 20%;
+        min-width: 95px;
     }
     .ux-c-hero__home {
         min-height:85vh;
