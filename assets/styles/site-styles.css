@@ -76,9 +76,10 @@
         grid-template-areas:
         'icon title'
         'icon desc'
+        'icon action'
         ;
     }
-    .ux-c-area-head svg {
+    .ux-c-area-head > svg {
         grid-area: icon;
         margin: var(--pf-global--spacer--lg) var(--pf-global--spacer--lg) 0 0;
     }
@@ -88,6 +89,10 @@
     .ux-c-area-head__desc {
         grid-area: desc;
         color:var(--pf-global--palette--black-400);
+    }
+    .ux-c-area-head__action {
+        grid-area: action;
+        margin-block-start: var(--pf-global--spacer--md);
     }
      .ux-l-cards {
      display: flex;
