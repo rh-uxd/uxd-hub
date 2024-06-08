@@ -340,7 +340,7 @@
     .ux-c-site-masthead__search {
         display: flex;
         margin-block-start: 64px;
-        max-width: 50vw;
+        width: 50vw;
         min-width: 300px;
         justify-content: center;
     }
