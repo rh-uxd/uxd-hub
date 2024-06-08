@@ -177,7 +177,7 @@
     
     /** HOMEPAGE **/
     
-    .ux-c-hero__home {
+    /* .ux-c-hero__home {
         background:#000 url(/uxd-hub/assets/images/home-bg-lg.jpg) no-repeat center bottom;
         min-height: 100vh;
         padding: var(--pf-global--spacer--lg);
@@ -249,6 +249,207 @@
     
     .ux-c-card__dark .pf-c-button.pf-m-link.pf-m-inline:hover {
         --pf-c-button--m-link--Color: #ccc;
+    } */
+    .ux-c-hero__home {
+        background:#000 url(/uxd-hub/assets/images/home-bg-lg.jpg) no-repeat center bottom;
+        min-height: 100vh;
+        padding: var(--pf-global--spacer--lg);
+        background-size: contain;
+    }
+    
+    @media screen and (min-width: 1200px) {
+        .ux-c-hero__home {
+            background-size: cover;
+        }
+      }
+    
+    .ux-c-hero__home__content {
+        color: white;
+        display:flex; 
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .ux-c-hero__home__content .ux-c-button {
+        margin-block-start: 48px;
+    }
+    
+    .ux-c-hero__home__content__title {
+        display: flex;
+        flex-direction: column;
+        font-family: var(--pf-global--FontFamily--redhatVF--heading--sans-serif);
+        
+    }
+    
+    .ux-c-hero__home__content__title__lg {
+        font-size: 5vw;
+        line-height: 1;
+        font-weight: bold;
+    }
+    
+    .ux-c-hero__home__content__title__sm {
+        line-height:2.5;
+        font-size: 1.3vw;
+        font-weight: lighter;
+    }
+    
+    .ux-section-home__cards {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        margin: 64px auto;
+        max-width: 1250px;
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .ux-c-card.ux-c-card__dark {
+        background: #000 url(/uxd-hub/assets/images/card-home-bg.png) no-repeat;
+        background-size: cover;
+        flex-grow: 1;
+        flex-basis: 0;
+        min-height: 285px;
+    }
+
+    .ux-c-card.ux-c-card__dark:nth-of-type(odd) {
+        background-position: bottom;
+    }
+
+    
+    .ux-c-card__dark__icon {
+        margin: 64px auto 32px;
+    }
+    
+    .ux-c-card__dark .pf-c-content {
+        --pf-c-content--Color: #fff;
+    }
+    
+    .ux-c-card__dark .pf-c-button.pf-m-link {
+        --pf-c-button--m-link--Color :#fff;
+    }
+    
+    .ux-c-card__dark .pf-c-button.pf-m-link.pf-m-inline:hover {
+        --pf-c-button--m-link--Color: #ccc;
+    }
+
+    .ux-c-site-masthead__search {
+        display: flex;
+        margin-block-start: 64px;
+        min-width: 50vw;
+        justify-content: center;
+    }
+    .ux-c-site-masthead__search__input, .ux-c-site-masthead__search__button {
+    border: none;
+    padding: var(--pf-global--spacer--md);
+    }
+    .ux-c-site-masthead__search__input {
+        border-radius: 30px 0 0 30px;
+        width: 50%;
+    }
+    
+    .ux-c-site-masthead__search__button {
+        border-radius: 0 30px 30px 0;
+        background: Red;
+        color: white;
+        font-size: 18px;
+        letter-spacing: 1px;
+        font-weight: 800;
+        text-transform: capitalize;
+        width: 20%;
+    }
+    .ux-c-hero__home {
+        min-height:85vh;
+    }
+    
+    .ux-c-site-masthead__actions {
+        margin:64px 0 40px 0;
+        justify-content: space-evenly;
+        display: flex;
+        width: 100%;
+        max-width: 35vw;
+    }
+    
+    .ux-c-hero__home__content .ux-c-button {
+    margin:0;
+    }
+    
+    .ux-c-button.ux-m-secondary {
+        background: none;
+        border: 3px solid white;
+        color: #fff !important;
+        display: inline-flex;
+        justify-content: center;
+        padding: var(--pf-global--spacer--md);
+        width: max-content;
+    }
+    .ux-c-button.ux-m-secondary:hover {
+        color: black !important;
+        text-decoration: none;
+    }
+    
+    .ux-c-button.ux-m-secondary:hover .ux-c-button__icon path{
+        fill: black;
+    }
+    
+    .ux-c-slack-banner {
+        display: flex;
+        justify-content: flex-start;
+        background: #F9F9FB;
+        border-radius: 16px;
+        align-items: center;
+        gap: 32px;
+        margin: 48px auto;
+    }
+    
+    .ux-c-slack-banner__content {
+        flex-grow: 1;
+    }
+    
+    .ux-c-slack-banner__action {
+        display: flex;
+        color: #000;
+        font-weight: 700;
+        border-radius: 50px;
+        background: #E9EEF5;
+        gap: 16px;
+        padding: 16px 32px;
+        border:3px solid transparent;
+    }
+    
+    .ux-c-slack-banner__action:hover {
+        text-decoration: none;
+        background: none;
+        border: 3px solid #E9EEf5;
+    }
+    .ux-section-home__cards {
+        display: flex;
+        gap: 16px;
+        margin: 48px auto 0;
+        max-width: 1400px;
+        
+    }
+    .ux-section-home__cards__item {
+        flex-grow: 1;
+        min-height: 350px;
+        width: calc(50% - 8px);
+        background-size: 90%;
+    }
+    .ux-section-home__cards__item__about {
+        background: var(--pf-global--palette--black-100) url('/uxd-hub/assets/images/uxd-hub-about.svg') center right no-repeat;
+        background-size: 50%;
+    }
+    
+    .ux-section-home__cards__item__team {
+        background: var(--pf-global--palette--black-100) url('/uxd-hub/assets/images/UXD-team-svg.svg') center right no-repeat;
+        background-size: 40%;
+    }
+    
+    .ux-section-home__cards__content {
+        max-width: 450px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        flex-direction: column;
     }
     
     .ux-c-card {
