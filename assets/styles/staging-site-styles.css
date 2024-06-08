@@ -79,7 +79,7 @@
         'icon action'
         ;
     }
-    .ux-c-area-head svg {
+    .ux-c-area-head > svg {
         grid-area: icon;
         margin: var(--pf-global--spacer--lg) var(--pf-global--spacer--lg) 0 0;
     }
