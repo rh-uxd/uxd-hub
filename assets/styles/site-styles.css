@@ -522,6 +522,11 @@
         border-radius: 50%;
     }
     
+    .ux-c-source--item__slidedeck {
+        background-color: #FEEEB7;
+        background-image: url(/uxd-hub/assets/images/slidedeck.svg);
+    }
+
     .ux-c-source--item__Sketch {
         background-color: #FEEEB7;
         background-image: url(/uxd-hub/assets/images/sketch.svg);
