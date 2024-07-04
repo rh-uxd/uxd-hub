@@ -1387,8 +1387,9 @@
 
     .ux-c-entry__content code {
         padding: var(--pf-global--spacer--md);
-        background: var(--pf-global--palette--black-300);
+        background: #ecedf5;
         white-space: pre-wrap;
+        display: block;
     }
 
     .ux-c-toc {
