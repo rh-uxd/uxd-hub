@@ -1445,3 +1445,11 @@
     padding: var(--pf-global--spacer--sm);
     border-radius: 40px;
     }
+    .ux-c-site-footer {
+        width: 100%;
+        border-top: 1px solid #ccc;
+        padding:var(--pf-global--spacer--xl) var(--pf-global--spacer--md);
+        margin-block-start: var(--pf-global--spacer--xl);
+        display:flex;
+        justify-content: space-between;
+    }
