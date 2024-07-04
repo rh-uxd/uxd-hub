@@ -991,7 +991,7 @@
             justify-content: center;
             }
             .ux-c-site-nav__list__item {
-                margin: 0 calc(16px + 1.5625vw);
+                margin: 0 3.5vw 0 0;
                 opacity: .5;
                 padding: 16px 0;
                 position: relative;
