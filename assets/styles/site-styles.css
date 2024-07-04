@@ -369,11 +369,12 @@
     }
     
     .ux-c-site-masthead__actions {
-        margin:64px 0 40px 0;
-        justify-content: space-evenly;
+        margin:64px auto 40px auto;
+        justify-content: center;
         display: flex;
         width: 100%;
-        max-width: 35vw;
+        flex-wrap: wrap;
+
     }
     
     .ux-c-hero__home__content .ux-c-button {
@@ -389,6 +390,9 @@
         padding: var(--pf-global--spacer--md);
         width: max-content;
     }
+.ux-c-button.ux-m-secondary.pf-m-small {
+    padding: var(--pf-global--spacer--xs) var(--pf-global--spacer--md);
+}
     .ux-c-button.ux-m-secondary:hover {
         color: black !important;
         text-decoration: none;
