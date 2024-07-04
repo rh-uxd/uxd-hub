@@ -391,7 +391,7 @@
         width: max-content;
     }
 .ux-c-button.ux-m-secondary.pf-m-small {
-    padding: var(--pf-global--spacer--xs) var(--pf-global--spacer--md);
+    padding: var(--pf-global--spacer--sm) var(--pf-global--spacer--md);
 }
     .ux-c-button.ux-m-secondary:hover {
         color: black !important;
