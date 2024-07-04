@@ -1380,10 +1380,17 @@
       overflow: scroll;
       background:#ffffff;
     }
-     .ux-c-entry__content .raw-html-embed iframe {
+     .ux-c-entry__content .raw-html-embed iframe, .ux-c-entry__content iframe  {
      	width: 100%;
         min-height: 500px;
      }
+
+    .ux-c-entry__content code {
+        padding: var(--pf-global--spacer--md);
+        background: var(--pf-global--palette--black-300);
+        white-space: pre-wrap;
+    }
+
     .ux-c-toc {
          display: block;
         background:var(--pf-global--BackgroundColor--100);
