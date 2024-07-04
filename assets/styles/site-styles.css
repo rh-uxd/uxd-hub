@@ -90,9 +90,12 @@
         grid-area: desc;
         color:var(--pf-global--palette--black-400);
     }
-    .ux-c-area-head__action {
+    .ux-c-area-head__actions {
         grid-area: action;
         margin-block-start: var(--pf-global--spacer--md);
+    }
+    .ux-c-area-head__actions .ux-c-button:first-of-type:not(:only-of-type) {
+        margin-bottom: var(--pf-global--spacer--md);
     }
      .ux-l-cards {
      display: flex;
