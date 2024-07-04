@@ -305,12 +305,16 @@
         display: flex;
         flex-wrap: wrap;
         gap: 16px;
-        margin: 64px auto;
+        margin: 48px auto 0;
         max-width: 1250px;
         width: 100%;
         justify-content: space-between;
     }
-    
+ @media screen and (max-width: 800px) {
+    .ux-section-home__cards{
+        flex-direction: column;
+    }
+ }
     .ux-c-card.ux-c-card__dark {
         background: #000 url(/uxd-hub/assets/images/card-home-bg.png) no-repeat;
         background-size: cover;
@@ -435,13 +439,13 @@
         background: none;
         border: 3px solid #E9EEf5;
     }
-    .ux-section-home__cards {
+/*     .ux-section-home__cards {
         display: flex;
         gap: 16px;
         margin: 48px auto 0;
         max-width: 1400px;
         
-    }
+    } */
     .ux-section-home__cards__item {
         flex-grow: 1;
         min-height: 350px;
