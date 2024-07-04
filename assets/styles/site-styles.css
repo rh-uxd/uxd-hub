@@ -441,12 +441,12 @@
         width: calc(50% - 8px);
         background-size: 90%;
     }
-    .ux-section-home__cards__item__about {
+    .ux-c-card.ux-section-home__cards__item__about {
         background: var(--pf-global--palette--black-100) url('/uxd-hub/assets/images/uxd-hub-about.svg') center right no-repeat;
         background-size: 50%;
     }
     
-    .ux-section-home__cards__item__team {
+    .ux-c-card.ux-section-home__cards__item__team {
         background: var(--pf-global--palette--black-100) url('/uxd-hub/assets/images/UXD-team-svg.svg') center right no-repeat;
         background-size: 40%;
     }
