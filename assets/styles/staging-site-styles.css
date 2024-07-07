@@ -406,7 +406,7 @@
     }
     
     .ux-c-sidePanel--section {
-        padding-bottom: var(--pf-global--spacer--lg);
+        padding-bottom: var(--pf-global--spacer--md);
     }
     
     .ux-c-sidePanel--section .pf-c-jump-links__list {
