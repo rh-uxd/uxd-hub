@@ -1466,13 +1466,13 @@
     
     .ux-c-toc__link {
         color: var(--pf-global--palette--black-700);
-        background: var(--pf-global--BackgroundColor--200);
-        padding: .25rem .75rem;
+        background: none;
+        padding: .25rem .5rem;
     }
     .ux-c-toc__link:hover,.ux-c-toc__link:active, .ux-c-toc__link.pf-m-current {
         color: var(--pf-global--palette--black-900);
         background: var(--pf-global--BackgroundColor--200);
-        padding: .25rem .75rem;
+        padding: .25rem .5rem;
         border-radius:6px;
         text-decoration: none;
     }
