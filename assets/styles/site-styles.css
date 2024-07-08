@@ -1450,8 +1450,9 @@
       color: var(--pf-global--BorderColor--light-100);
       font-weight: bold;
       display: inline-block; 
-      width: 1em;
+      width: .5em;
       margin-left: -1em;
+      margin-right: 1em;
     }
     
     .ux-c-toc__listItem:first-child {
@@ -1469,6 +1470,9 @@
     }
     .ux-c-toc__link:hover,.ux-c-toc__link:active, .ux-c-toc__link.pf-m-current {
         color: var(--pf-global--palette--black-900);
+        background: var(--pf-global--BackgroundColor--200);
+        padding: .25rem .75rem;
+        border-radius:6px;
         text-decoration: none;
     }
       
