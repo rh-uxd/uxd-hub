@@ -1452,7 +1452,7 @@
       display: inline-block; 
       width: .5em;
       margin-left: -1em;
-      margin-right: 1em;
+      margin-right: .25em;
     }
     
     .ux-c-toc__listItem:first-child {
