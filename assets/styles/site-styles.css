@@ -1267,7 +1267,7 @@
         }
     }
     
-    @media screen and (min-width: 1100px) {
+    @media screen and (min-width: 900px) {
         .ux-l-page-wrapper {
             grid-template-columns: 375px 4fr;
             margin-top: 56px;
@@ -1310,7 +1310,7 @@
       }
     }
         
-    @media screen and (max-width: 1100px) {
+    @media screen and (max-width: 900px) {
         body, html {
             height: calc(100vh - 56px)!important;
         }
