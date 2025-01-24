@@ -1407,6 +1407,21 @@
         white-space: pre-wrap;
         display: block;
     }
+    @media screen and (max-width: 500px) {  
+        .ux-c-entry__content code {
+            padding: var(--pf-global--spacer--md);
+            background: #ecedf5;
+            white-space: pre-wrap;
+            display: block;
+            width:100%;
+            max-width: 360px;
+        }
+        .ux-c-entry__content img {
+            width:100%;
+            max-width: 360px;
+        }
+    }
+    
 
     .ux-c-toc {
         display: block;
