@@ -1370,13 +1370,13 @@
             display: none;
         }
         
-        .ux-c-toc:not(.toggle) .ux-c-toc__header svg {
+        /* .ux-c-toc:not(.toggle) .ux-c-toc__header svg {
             transform:rotate(90deg);
-        }
+        } */
         
-        .ux-c-toc.toggle .ux-c-toc__header svg {
+        /* .ux-c-toc.toggle .ux-c-toc__header svg {
             transform:rotate(270deg);
-        }
+        } */
     }   
     
     .ux-c-entry__toc {
