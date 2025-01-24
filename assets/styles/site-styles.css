@@ -1380,8 +1380,8 @@
     }   
     
     .ux-c-entry__toc {
-      position: sticky;
-      top:0;
+      /* position: sticky;
+      top:0; */
       grid-area: toc;
       padding-top: var(--pf-global--spacer--md);
     }
