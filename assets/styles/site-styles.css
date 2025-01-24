@@ -1387,7 +1387,7 @@
     }
     .ux-c-entry__content {
       grid-area: body;
-      overflow:scroll;
+      /* overflow:scroll; */
       position: relative;
       z-index: 1;
       max-width:1300px;
